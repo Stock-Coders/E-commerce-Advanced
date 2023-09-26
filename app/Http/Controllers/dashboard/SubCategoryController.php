@@ -27,8 +27,8 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
-        return view('dashboard.pages.sub-categories.create');
+        $categories = \App\Models\Category::all();
+        return view('dashboard.pages.sub-categories.create', compact('categories'));
     }
 
     /**
@@ -41,8 +41,9 @@ class SubCategoryController extends Controller
     {
         //
         $request->validate([
-            'title'         =>'required|string|unique:subCategories,title|max:255',
-           'description'    =>'nullable|syring|max:1020',
+            'title'         =>'required|string|unique:sub_categories,title|max:255',
+           'description'    =>'nullable|string|max:1020',
+           'category_id'    => 'required|exists:categories,id',
            'create_user_id' =>'nullable|exists:users,id',
            'update_user_id' =>'nullable|exists:users,id',
         ]);
@@ -50,6 +51,7 @@ class SubCategoryController extends Controller
         $subCategory   = new SubCategory();
         $subCategory->title          = $request->title;
         $subCategory->description    = $request->description;
+        $subCategory->category_id    = $request->category_id;
         $subCategory->create_user_id = auth()->user()->id;
         $subCategory->update_at      = null;
         $subCategory->save();
@@ -87,7 +89,8 @@ class SubCategoryController extends Controller
                 return view('dashboard.pages.sub-categories.404.sub-categories-404');
             }
             if(auth()->user()->user_type == "admin"){
-                return view('dashboard.pages.sub-categories.edit' , compact('subCategory'));
+                $categories = \App\Models\Category::all();
+                return view('dashboard.pages.sub-categories.edit' , compact('subCategory', 'categories'));
             }
             else{
                 return view('dashboard.pages.sub-Categories.unauthorized.unauthorized');
@@ -107,11 +110,12 @@ class SubCategoryController extends Controller
         $request->validate([
             'title'          => 'required|string|max:255',
             'description'    => 'nullable|string|max:1020',
+            'category_id'    => 'required|exists:categories,id',
             'create_user_id' => 'nullable|exists:users,id',
             'update_user_id' => 'nullable|exists:users,id',
         ]);
-        $subCategory_old    = SubCategory::find($id);
-        $subCategory        = SubCategory::find($id);
+        $subCategory_old             = SubCategory::find($id);
+        $subCategory                 = SubCategory::find($id);
         $subCategory->title = $request->title;
         if($subCategory->title == $request->title){
             $subCategory->title = $subCategory->title;
@@ -120,6 +124,7 @@ class SubCategoryController extends Controller
             $subCategory->title = $request->title;
         }
         $subCategory->description    = $request->description;
+        $subCategory->category_id    = $request->category_id;
         $subCategory->update_user_id = auth()->user()->id;
         $subCategory->save();
         return redirect()->route('subCategories.index')->with('updated_subCategory_successfully', "The sub-category ($subCategory_old->title) has Been updated Successfully.");
