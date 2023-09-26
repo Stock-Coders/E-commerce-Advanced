@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->text('description')->nullable();
-            $table->foreignId('category_id')->constrained('categories')->nullable()->onDelete('cascade');
+            $table->longText('description')->nullable();
+            $table->string('create_user_id')->nullable();
+            $table->string('update_user_id')->nullable();
+            $table->foreignId('category_id')->  nullable()->constrained('categories')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
