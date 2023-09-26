@@ -1,4 +1,5 @@
 @extends('dashboard.layouts.master')
+@inject('subCategory', 'App\Models\SubCategory')
 @section('title' , 'Create Sub-Category')
 @section('main-content')
 <div class="container-fluid">
@@ -22,7 +23,7 @@
               </div> <!-- /.col -->
             </div>
           </div>
-        </div> <!-- / .card -->subCategories
+        </div> <!-- / .card -->
       </div> <!-- .col-12 -->
     </div> <!-- .row -->
   </div> <!-- .container-fluid -->

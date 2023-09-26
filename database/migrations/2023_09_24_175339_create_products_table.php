@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->float('price');
             $table->integer('available_quantity');
-            // $table->foreignId('sub_category_id')->constrained('subcategories')->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
+            $table->foreignId('sub_category_id')->nullable()->constrained('sub_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
