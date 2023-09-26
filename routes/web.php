@@ -1,12 +1,11 @@
 <?php
 // Website Controllers
-use App\Http\Controllers\website\ProductsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\website\MainController;
-use App\Http\Controllers\website\ProfileController;
+use App\Http\Controllers\website\{MainController,
+    ProductsController, ProfileController};
 // Dashboard Controllers
-use App\Http\Controllers\dashboard\DashboardMainController;
-use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\{DashboardMainController,
+    CategoryController, SubCategoryController};
 
 /*
 |--------------------------------------------------------------------------
