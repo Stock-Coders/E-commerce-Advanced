@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->longText('description')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('create_user_id')->nullable()->constrained('users');
             $table->foreignId('update_user_id')->nullable()->constrained('users');
-            $table->foreignId('category_id')->  nullable()->constrained('categories')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
