@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->longText('description')->nullable();
-            $table->string('create_user_id')->nullable();
-            $table->string('update_user_id')->nullable();
+            $table->foreignId('create_user_id')->nullable()->constrained('users');
+            $table->foreignId('update_user_id')->nullable()->constrained('users');
             $table->foreignId('category_id')->  nullable()->constrained('categories')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
