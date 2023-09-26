@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 
 use App\Models\SubCategory;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class SubCategoryController extends Controller
     {
         //
         $subCategories = SubCategory::latest()->Paginate(5);
-        return view('dashboard.pages.categories.index',compact('categories'));
+        return view('dashboard.pages.sub-categories.index',compact('subCategories'));
     }
 
     /**
@@ -69,7 +69,7 @@ class SubCategoryController extends Controller
         //
         $subCategory = SubCategory::find($id);
         if($subCategory == null){
-            return view('dashboard.pages.categories.404.sub-categories-404');
+            return view('dashboard.pages.sub-categories.404.sub-categories-404');
         }
         return view('dashboard.pages.sub-categories.show' , compact('subCategory'));
     }
