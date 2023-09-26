@@ -1,31 +1,31 @@
-@if(session()->has('created_category_successfully'))
+@if(session()->has('created_subCategory_successfully'))
 <p>
     <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-        {{ session()->get('created_category_successfully') }}
+        {{ session()->get('created_subCategory_successfully') }}
     </div>
 </p>
-@elseif(session()->has('updated_category_successfully'))
+@elseif(session()->has('updated_subCategory_successfully'))
 <p>
     <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-        {{ session()->get('updated_category_successfully') }}
+        {{ session()->get('updated_subCategory_successfully') }}
     </div>
 </p>
-@elseif(session()->has('softDeleted_category_successfully'))
+@elseif(session()->has('softDeleted_subCategory_successfully'))
 <p>
     <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-        {{ session()->get('softDeleted_category_successfully') }} <a href="{{ route('categories.delete') }}">Trash</a>.
+        {{ session()->get('softDeleted_subCategory_successfully') }} <a href="{{ route('subcategories.delete') }}">Trash</a>.
     </div>
 </p>
-@elseif(session()->has('restored_category_successfully'))
+@elseif(session()->has('restored_subCategory_successfully'))
 <p>
     <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-        {{ session()->get('restored_category_successfully') }}
+        {{ session()->get('restored_subCategory_successfully') }}
     </div>
 </p>
-@elseif(session()->has('forceDeleted_category_successfully'))
+@elseif(session()->has('forceDeleted_subCategory_successfully'))
 <p>
     <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-        {{ session()->get('forceDeleted_category_successfully') }}
+        {{ session()->get('forceDeleted_subCategory_successfully') }}
     </div>
 </p>
 @endif

@@ -21,4 +21,9 @@ class Category extends Model
     {
         return $this->belongsTo(User::class, 'update_user_id', 'id');
     }
+
+    public function subCategory(): \Illuminate\Database\Eloquent\Relations\hasMany
+    {
+        return $this->hasMany(SubCategory::class);
+    }
 }

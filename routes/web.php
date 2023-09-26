@@ -60,11 +60,11 @@ Route::group([
         Route::get('/category/restore/{id}',[CategoryController::class , 'restore'])->name('categories.restore');  //Route Function restore
         Route::delete('/category/forceDelete/{id}',[CategoryController::class , 'forceDelete'])->name('categories.forceDelete');  //Route Function forceDelete
 
-        Route::resource('/subCategories', SubCategoryController::class);
-        Route::delete('/subcategory-products/delete/{id}',[SubCategoryController::class , 'clearProducts'])->name('subCategoriesProducts.clear'); //Route Function Clear All Products that belongs to a specific Category by id
-        Route::get('/subcategory/delete',[SubCategoryController::class , 'delete'])->name('subCategories.delete');  //Route Function softDelete Category
-        Route::get('/subcategory/restore/{id}',[SubCategoryController::class , 'restore'])->name('subCategories.restore');  //Route Function restore
-        Route::delete('/subcategory/forceDelete/{id}',[SubCategoryController::class , 'forceDelete'])->name('subCategories.forceDelete');  //Route Function forceDelete
+        Route::resource('/subcategories', SubCategoryController::class);
+        Route::delete('/subcategory-products/delete/{id}',[SubCategoryController::class , 'clearProducts'])->name('subcategoriesProducts.clear'); //Route Function Clear All Products that belongs to a specific Sub Category by id
+        Route::get('/subcategory/delete',[SubCategoryController::class , 'delete'])->name('subcategories.delete');  //Route Function softDelete Category
+        Route::get('/subcategory/restore/{id}',[SubCategoryController::class , 'restore'])->name('subcategories.restore');  //Route Function restore
+        Route::delete('/subcategory/forceDelete/{id}',[SubCategoryController::class , 'forceDelete'])->name('subcategories.forceDelete');  //Route Function forceDelete
     });
 });
 //*****-------------------- END dashboard/admin route. --------------------*****//

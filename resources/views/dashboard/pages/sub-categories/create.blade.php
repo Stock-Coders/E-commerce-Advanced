@@ -22,7 +22,7 @@
               </div> <!-- /.col -->
             </div>
           </div>
-        </div> <!-- / .card -->
+        </div> <!-- / .card -->subCategories
       </div> <!-- .col-12 -->
     </div> <!-- .row -->
   </div> <!-- .container-fluid -->

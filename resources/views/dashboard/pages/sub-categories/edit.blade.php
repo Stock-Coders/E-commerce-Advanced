@@ -13,12 +13,12 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">
-                <form action="{{ route('categories.update', $category->id) }}" method="post">
+                <form action="{{ route('subcategories.update', $category->id) }}" method="post">
                     @csrf
                     @method('PUT')
-                    @include('dashboard.pages.categories.form')
+                    @include('dashboard.pages.sub-categories.form')
                     <button type="submit" class="btn btn-primary btn-md px-4 font-weight-bold fs-5 border-2 shadow border-dark rounded" >Update</button>
-                    <a href="{{ route('categories.index') }}" class="btn btn-dark btn-md px-2 font-weight-bold fs-5 shadow border-2 border-dark rounded" >Return to Categories</a>
+                    <a href="{{ route('subcategories.index') }}" class="btn btn-dark btn-md px-2 font-weight-bold fs-5 shadow border-2 border-dark rounded" >Return to Categories</a>
                 </form>
               </div> <!-- /.col -->
             </div>

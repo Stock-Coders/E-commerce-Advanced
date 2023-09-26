@@ -135,7 +135,7 @@ class SubCategoryController extends Controller
         return redirect()->route('subCategories.show', $subCategory->id)->with('deleted_subCategoryProducts_successfully', "The products for sub-category ($subCategory->title) has been deleted successfully.");
     }
 
-
+ 
     /**
      * Remove the specified resource from storage.
      *
