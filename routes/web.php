@@ -39,10 +39,11 @@ Route::get('/wishlist',[MainController::class,'wishlist'])->name('wishlist');
 Route::get('/thank-you' , [MainController::class, 'thankYou'])->name('thank-you');
 //checkout Page
 Route::get('/checkout' , [MainController::class, 'checkout'])->name('checkout');
+//categories Page
 Route::get('/categories', [MainController::class, 'category'])->name('category');
-//*****-------------------- START Products Controller  route. --------------------*****//
+//shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
-//*****-------------------- START Profile Controller  route. --------------------*****//
+//profile Pages
 Route::get('/profile/{id}', [ProfileController::class , 'showProfile'])->name('showProfile');
 Route::get('/profile/{id}/edit', [ProfileController::class , 'editProfile'])->name('editProfile');
 Route::patch('/profile/{id}/update', [ProfileController::class , 'updateProfile'])->name('updateProfile');
@@ -51,17 +52,19 @@ Route::group([
     'middleware' => ['auth', 'dashboard']
 ], function () {
     Route::prefix('dashboard')->group(function () {
-        //---------------- START dashboard home route ----------------//
         Route::get('/', [DashboardMainController::class, 'index'])->name('dashboard');
 
-        //---------------- END dashboard home route ----------------//
-        //---------------- START Categories Routes   ----------------//
         Route::resource('/categories', CategoryController::class);
         Route::delete('/category-products/delete/{id}',[CategoryController::class , 'clearProducts'])->name('categoriesProducts.clear'); //Route Function Clear All Products that belongs to a specific Category by id
         Route::get('/category/delete',[CategoryController::class , 'delete'])->name('categories.delete');  //Route Function softDelete Category
         Route::get('/category/restore/{id}',[CategoryController::class , 'restore'])->name('categories.restore');  //Route Function restore
         Route::delete('/category/forceDelete/{id}',[CategoryController::class , 'forceDelete'])->name('categories.forceDelete');  //Route Function forceDelete
-        //---------------- END Categories Routes   ----------------//
+
+        Route::resource('/subCategories', SubCategoryController::class);
+        Route::delete('/subcategory-products/delete/{id}',[SubCategoryController::class , 'clearProducts'])->name('subCategoriesProducts.clear'); //Route Function Clear All Products that belongs to a specific Category by id
+        Route::get('/subcategory/delete',[SubCategoryController::class , 'delete'])->name('subCategories.delete');  //Route Function softDelete Category
+        Route::get('/subcategory/restore/{id}',[SubCategoryController::class , 'restore'])->name('subCategories.restore');  //Route Function restore
+        Route::delete('/subcategory/forceDelete/{id}',[SubCategoryController::class , 'forceDelete'])->name('subCategories.forceDelete');  //Route Function forceDelete
     });
 });
 //*****-------------------- END dashboard/admin route. --------------------*****//

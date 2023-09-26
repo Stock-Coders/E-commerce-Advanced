@@ -44,8 +44,8 @@ class CategoryController extends Controller
          $request->validate([
             'title'          => 'required|string|unique:categories,title|max:255',
             'description'    => 'nullable|string|max:1020',
-            'create_user_id' => 'nullable',
-            'update_user_id' => 'nullable',
+            'create_user_id' => 'nullable|exists:users,id',
+            'update_user_id' => 'nullable|exists:users,id',
         ]);
             //create Category
             $category                 = new Category();
@@ -107,8 +107,8 @@ class CategoryController extends Controller
         $request->validate([
             'title'          => 'required|string|max:255',
             'description'    => 'nullable|string|max:1020',
-            'create_user_id' => 'nullable',
-            'update_user_id' => 'nullable',
+            'create_user_id' => 'nullable|exists:users,id',
+            'update_user_id' => 'nullable|exists:users,id',
         ]);
             //update Category
             $category_old             = Category::find($id);

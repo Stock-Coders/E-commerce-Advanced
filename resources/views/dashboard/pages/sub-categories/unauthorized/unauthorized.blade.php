@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.master')
-@section('title', "Categories - 404")
+@section('title', "Categories - unauthorized")
 @section('main-content')
 <div class="container text-center my-4 p-5">
     <div class="row">
@@ -14,8 +14,9 @@
         </h1>
         <br/>
         <div class="container mt-lg-4 d-flex justify-content-center text-center w-100">
-            <span class="alert alert-danger p-2 rounded text-dark h2">Sorry! The category that you are searching for is not found.</span>
+            <span class="alert alert-danger p-2 rounded text-dark h2">Sorry! You are unauthorized to edit categories.</span>
         </div>
     </div>
 </div>
 @endsection
+
