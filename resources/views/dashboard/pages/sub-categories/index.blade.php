@@ -2,7 +2,7 @@
 @section('title' , 'Sub-categories')
 @section('main-content')
 <!-- Bordered table -->
-@include('dashboard.pages.sub-subcategories.index-messages.messages')
+@include('dashboard.pages.sub-categories.index-messages.messages')
 <table class="table table-hover table-bordered @if($subCategories->count() == 0) d-none @endif">
     <thead class="thead-dark">
     <tr>
