@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\{Factories\HasFactory, Model, SoftDeletes};
 
 class Category extends Model
 {
@@ -25,5 +23,10 @@ class Category extends Model
     public function subCategory(): \Illuminate\Database\Eloquent\Relations\hasMany
     {
         return $this->hasMany(SubCategory::class);
+    }
+
+    public function product(): \Illuminate\Database\Eloquent\Relations\hasMany
+    {
+        return $this->hasMany(Product::class);
     }
 }

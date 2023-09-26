@@ -8,7 +8,7 @@
 
 <div class="form-group mb-3">
     <label for="description"> Description </label>
-    <textarea type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" style="height: 200px">{{ $subCategory->description }}</textarea>
+    <textarea type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" style="height: 100px">{{ $subCategory->description }}</textarea>
     @error('description')
         <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
     @enderror
