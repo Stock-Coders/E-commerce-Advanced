@@ -25,7 +25,7 @@ class CategoryApiController extends Controller
     }
     //update Category
     public function updateCategory(Request $request , $id){
-        $category =Category::find($id);
+        $category = Category::find($id);
         $category->update($request->all());
         return response()->json($category) ;
     }
@@ -33,7 +33,7 @@ class CategoryApiController extends Controller
     //Function Delete Category
 
     public function deleteCategory($id){
-        $deleteCategory =Category::destroy($id);
+        $deleteCategory = Category::destroy($id);
         return response()->json($deleteCategory);
        }
 
