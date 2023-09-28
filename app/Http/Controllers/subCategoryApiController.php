@@ -14,8 +14,8 @@ class subCategoryApiController extends Controller
     // Save New subCategory Api
         public function storeSubCategory(Request $request){
             $request->validate([
-                'title'         =>'required|string|unique:sub_categories,title|max:255',
-                'description'    =>'nullable|string|max:1020',
+                'title'       => 'required|string|unique:sub_categories,title|max:255',
+                'description' => 'nullable|string|max:1020',
             ]);
             $subCategory = SubCategory::create($request->all());
             return response()->json($subCategory);
