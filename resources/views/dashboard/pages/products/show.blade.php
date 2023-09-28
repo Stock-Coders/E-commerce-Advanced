@@ -15,9 +15,7 @@
                 <button class="btn btn-danger mx-1" type="submit"><i class="fa-solid fa-trash-alt p-1"></i> Delete</button>
                 <p class="mt-4">
                     <a href="{{ route('products.index') }}" class="btn btn-info"><i class="fa-solid fa-arrow-left p-1"></i> Return to Products</a>
-                    {{-- @if(isset($related_products))
-                    <a href="{{ route('products.show', $related_products) }}" class="btn btn-warning"><i class="fa-solid fa-network-wired p-1"></i> Show Related Products</a>
-                    @endif --}}
+                    <a href="{{ '#' }}" class="btn btn-warning"><i class="fa-solid fa-network-wired p-1"></i> Show Related Products</a>
                 </p>
             </form>
         </div>
