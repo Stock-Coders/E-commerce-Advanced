@@ -57,7 +57,7 @@
         <li class="nav-item dropdown">
             <a href="#sub-categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
               <i class="fe fe-layers fe-16"></i>
-              <span class="ml-3 item-text">sub-categories</span>
+              <span class="ml-3 item-text">Sub-categories</span>
               <span class="badge badge-pill badge-primary">New</span>
             </a>
             <ul class="collapse list-unstyled pl-4 w-100" id="sub-categories">

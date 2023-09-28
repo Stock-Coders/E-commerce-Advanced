@@ -58,7 +58,7 @@
     </tr>
     @empty
     <div class="alert alert-danger text-center my-5 w-75 mx-auto">
-        <span class="h6">There are no deleted products yet! <a href="{{ route('products.create') }}" class="fw-bold text-dark">Add products from here</a>.</span>
+        <span class="h6">There are no deleted products yet!</span>
     </div>
     @endforelse
     </tbody>
