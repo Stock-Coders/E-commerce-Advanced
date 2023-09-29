@@ -139,7 +139,7 @@ class ProductController extends Controller
         $product->available_quantity = $request->available_quantity;
         $product->category_id        = $request->category_id;
         $product->sub_category_id    = $request->sub_category_id;
-        $product->updated_user_id    = auth()->user()->id;
+        $product->update_user_id    = auth()->user()->id;
         $product->save();
         return redirect()->route('products.index')->with('updated_product_successfully', "The product ($product_old->title) has Been updated Successfully.");
     }
