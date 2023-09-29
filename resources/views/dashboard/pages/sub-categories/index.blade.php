@@ -3,6 +3,18 @@
 @section('main-content')
 <!-- Bordered table -->
 @include('dashboard.pages.sub-categories.index-messages.messages')
+<div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="d-flex justify-content-end flex-wrap">
+        <div class="d-flex justify-content-between align-items-end flex-wrap">
+          <a href="{{ route('subcategories.create') }}" class="btn btn-success text-light font-weight-bold">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Sub-category</span>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
 <table class="table table-hover table-bordered @if($subCategories->count() == 0) d-none @endif">
     <thead class="thead-dark text-center">
     <tr>
