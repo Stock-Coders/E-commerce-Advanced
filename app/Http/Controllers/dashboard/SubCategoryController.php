@@ -53,10 +53,10 @@ class SubCategoryController extends Controller
         $subCategory->description    = $request->description;
         $subCategory->category_id    = $request->category_id;
         $subCategory->create_user_id = auth()->user()->id;
-        $subCategory->update_at      = null;
+        $subCategory->updated_at      = null;
         $subCategory->save();
 
-        return redirect()->route('subCategories.index')->with('created_subCategory_successfully' , "The sub-category ($subCategory->title)has been Created Successfully.");
+        return redirect()->route('subcategories.index')->with('created_subCategory_successfully' , "The sub-category ($subCategory->title)has been Created Successfully.");
 
     }
 
@@ -127,7 +127,7 @@ class SubCategoryController extends Controller
         $subCategory->category_id    = $request->category_id;
         $subCategory->update_user_id = auth()->user()->id;
         $subCategory->save();
-        return redirect()->route('subCategories.index')->with('updated_subCategory_successfully', "The sub-category ($subCategory_old->title) has Been updated Successfully.");
+        return redirect()->route('subcategories.index')->with('updated_subCategory_successfully', "The sub-category ($subCategory_old->title) has Been updated Successfully.");
     }
 
     //Function Clear
@@ -137,7 +137,7 @@ class SubCategoryController extends Controller
             return view('dashboard.pages.sub-categories.404.sub-categories-404');
         }
         $subCategory->product()->delete();
-        return redirect()->route('subCategories.show', $subCategory->id)->with('deleted_subCategoryProducts_successfully', "The products for sub-category ($subCategory->title) has been deleted successfully.");
+        return redirect()->route('subcategories.show', $subCategory->id)->with('deleted_subCategoryProducts_successfully', "The products for sub-category ($subCategory->title) has been deleted successfully.");
     }
 
 
@@ -153,7 +153,7 @@ class SubCategoryController extends Controller
         $subCategory->delete();
         $subCategory->updated_at = null;
         $subCategory->save();
-        return redirect()->route('subCategories.index')->with('softDeleted_subCategory_successfully' , "The sub-category ($subCategory->title) has been moved to trash successfully.");
+        return redirect()->route('subcategories.index')->with('softDeleted_subCategory_successfully' , "The sub-category ($subCategory->title) has been moved to trash successfully.");
     }
 
     //function Delete
@@ -168,12 +168,12 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::findOrFail($id);
         $subCategory->updated_at = null;
         $subCategory->save();
-        return redirect()->route('subCategories.index')->with('restored_subCategory_successfully', "The sub-category ($subCategory->title) has been restored successfully.");
+        return redirect()->route('subcategories.index')->with('restored_subCategory_successfully', "The sub-category ($subCategory->title) has been restored successfully.");
     }
 
     public function forceDelete($id){
         $subCategory = SubCategory::where('id', $id);
         $subCategory->forceDelete();
-        return redirect()->route('subCategories.index')->with('forceDeleted_subCategory_successfully', "The sub-category has been permanently deleted successfully.");
+        return redirect()->route('subcategories.index')->with('forceDeleted_subCategory_successfully', "The sub-category has been permanently deleted successfully.");
     }
 }

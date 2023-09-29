@@ -20,6 +20,7 @@
           <a href="{{ route('dashboard') }}" class="dropdown-toggle nav-link">
             <i class="fe fe-home fe-16"></i>
             <span class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
+            <span class="pl-2">{{ auth()->user()->user_type == 'admin' ? '(Admin)' : '(Moderator)' }}</span>
           </a>
         </li>
       </ul>

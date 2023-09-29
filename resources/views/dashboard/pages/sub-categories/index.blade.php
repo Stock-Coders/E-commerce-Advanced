@@ -4,23 +4,23 @@
 <!-- Bordered table -->
 @include('dashboard.pages.sub-categories.index-messages.messages')
 <table class="table table-hover table-bordered @if($subCategories->count() == 0) d-none @endif">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Category</th>
-        <th>created_by</th>
-        <th>updated_by</th>
-        <th>created_at</th>
-        <th>updated_at</th>
-        <th>Actions</th>
+        <th class="font-weight-bold">#</th>
+        <th class="font-weight-bold">Title</th>
+        <th class="font-weight-bold">Description</th>
+        <th class="font-weight-bold">Category</th>
+        <th class="font-weight-bold">Created By</th>
+        <th class="font-weight-bold">Updated By</th>
+        <th class="font-weight-bold">Created At</th>
+        <th class="font-weight-bold">Updated At</th>
+        <th class="font-weight-bold">Actions</th>
     </tr>
     </thead>
     <tbody>
     @forelse($subCategories as $subCategory)
     <tr>
-        <td>{{ $subCategory->id }}</td>
+        <td class="font-weight-bold">{{ $loop->iteration }}</td>
         {{-- <td>
             <div class="progress progress-sm" style="height:3px">
                 <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>

@@ -4,26 +4,26 @@
 <!-- Bordered table -->
 @include('dashboard.pages.sub-categories.index-messages.messages')
 <table class="table table-hover table-bordered @if($products->count() == 0) d-none @endif">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Available Quantity</th>
-        <th>Category</th>
-        <th>Sub-category</th>
-        <th>created_by</th>
-        <th>updated_by</th>
-        <th>created_at</th>
-        <th>updated_at</th>
-        <th>Actions</th>
+        <th class="font-weight-bold">#</th>
+        <th class="font-weight-bold">Title</th>
+        <th class="font-weight-bold">Description</th>
+        <th class="font-weight-bold">Price</th>
+        <th class="font-weight-bold">Available Quantity</th>
+        <th class="font-weight-bold">Category</th>
+        <th class="font-weight-bold">Sub-category</th>
+        <th class="font-weight-bold">Created By</th>
+        <th class="font-weight-bold">Updated By</th>
+        <th class="font-weight-bold">Created At</th>
+        <th class="font-weight-bold">Updated At</th>
+        <th class="font-weight-bold">Actions</th>
     </tr>
     </thead>
     <tbody>
     @forelse($products as $product)
     <tr>
-        <td>{{ $product->id }}</td>
+        <td class="font-weight-bold">{{ $loop->iteration }}</td>
         {{-- <td>
             <div class="progress progress-sm" style="height:3px">
                 <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
@@ -39,17 +39,19 @@
         <td>{{ $product->update_user->name ?? 'N/A' }}</td>
         <td>{{ $product->created_at }}</td>
         <td>{{ $product->updated_at ?? 'N/A' }}</td>
-        <td class="text-light ">
-            <div class="d-flex justify-content-between aligin-items-center">
-                <form action="{{ route('products.destroy', $product->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm font-weight-bold fs-5">Show</a>
-                    @if(auth()->user()->user_type == "admin")
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm font-weight-bold fs-6">Edit</a>
-                    <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6">Delete</button>
-                    @endif
-                </form>
+        <td class="text-light">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm font-weight-bold fs-6 mx-1">Show</a>
+                @if(auth()->user()->user_type == "admin")
+                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm font-weight-bold fs-6 mx-1">Edit</a>
+                <div>
+                    <form action="{{ route('products.destroy', $product->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6 mx-1">Delete</button>
+                    </form>
+                </div>
+                @endif
             </div>
         </td>
     </tr>

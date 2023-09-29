@@ -16,9 +16,9 @@
     </div>
 </div>
 <table class="table table-hover table-bordered @if($categories->count() == 0) d-none @endif">
-    <thead class="thead-dark">
+    <thead class="thead-dark text-center">
     <tr>
-        <th class="font-weight-bold">ID</th>
+        <th class="font-weight-bold">#</th>
         <th class="font-weight-bold">Title</th>
         <th class="font-weight-bold">Description</th>
         <th class="font-weight-bold">Created By</th>
@@ -31,7 +31,7 @@
     <tbody>
     @forelse($categories as $category)
     <tr>
-        <td class="font-weight-bold">{{ $category->id }}</td>
+        <td class="font-weight-bold">{{ $loop->iteration }}</td>
         {{-- <td>
             <div class="progress progress-sm" style="height:3px">
                 <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
