@@ -11,7 +11,7 @@ class CategoryApiController extends Controller
     //Category Api Controller
     //Get All Category
     public function getCategories(){
-        $categories = Category::all();
+        $categories = Category::with('create_user')->with('update_user')->get();
         return response()->json($categories);
     }
 

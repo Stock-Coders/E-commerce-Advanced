@@ -10,7 +10,8 @@ class SubCategoryApiController extends Controller
 {
     // Get All SubCategories Api
         public function getSubCategories(){
-            $subCategory = SubCategory::with('category')->get();
+            $subCategory = SubCategory::with('create_user')->with('update_user')
+                ->with('category')->get();
             return response()->json($subCategory);
         }
     // Save New subCategory Api

@@ -12,7 +12,8 @@ class ProductApiController extends Controller
     public function getProducts(){
         // $products = Product::all();
 
-        $products = Product::with('category')->with('subCategory')->get();
+        $products = Product::with('create_user')->with('update_user')
+            ->with('category')->with('subCategory')->get();
 
         return response()->json($products);
     }
