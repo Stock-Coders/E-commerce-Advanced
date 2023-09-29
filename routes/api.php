@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryApiController;
-use App\Http\Controllers\subCategoryApiController;
-use App\Http\Controllers\ProductApiController;
+use App\Http\Controllers\dashboard\CategoryApiController;
+use App\Http\Controllers\dashboard\SubCategoryApiController;
+use App\Http\Controllers\dashboard\ProductApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,13 +31,13 @@ Route::put('/categories' , [CategoryApiController::class , 'updateCategory']);
 Route::delete('/categories' , [CategoryApiController::class , 'deleteCategory']);
 // SubCategory Controller Api
 //get All SubCategory
-Route::get('/subcategories' , [subCategoryApiController::class , 'getSubCategories']);
+Route::get('/subcategories' , [SubCategoryApiController::class , 'getSubCategories']);
 //Save SubCategory Api
-Route::post('/subcategories' , [subCategoryApiController::class , 'storeSubCategor']);
+Route::post('/subcategories' , [SubCategoryApiController::class , 'storeSubCategory']);
 //Update SubCategory Api
-Route::put('/subcategoryies' , [subCategoryApiController::class , 'updateSubCategory']);
+Route::put('/subcategoryies' , [SubCategoryApiController::class , 'updateSubCategory']);
 //delete SubCategory Api
-Route::delete('/subcategories' , [subCategoryApiController::class , 'deleteSubCategory']);
+Route::delete('/subcategories' , [SubCategoryApiController::class , 'deleteSubCategory']);
 //------------------------------------------------------------------------------------------
 //--------------->Product Api Controller
 // Get All Products  Api (Index)

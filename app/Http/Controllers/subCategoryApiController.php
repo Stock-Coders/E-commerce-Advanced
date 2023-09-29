@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
 
-class subCategoryApiController extends Controller
+class SubCategoryApiController extends Controller
 {
     // Get All SubCategory Api
         public function getSubCategory(){

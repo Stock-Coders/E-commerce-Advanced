@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -8,7 +8,7 @@ class ProductApiController extends Controller
 {
     //Get All Api Products
     public function getProducts(){
-        $products            = Product::all();
+        $products = Product::all();
         return response()->json($products);
     }
 
@@ -20,7 +20,7 @@ class ProductApiController extends Controller
 
     //Get Single Products Api
     public function getProduct($id){
-        $singleProduct     = Product::find($id);
+        $singleProduct = Product::find($id);
         return response()->json($singleProduct);
     }
 
@@ -48,7 +48,7 @@ class ProductApiController extends Controller
         }
 
     //delete Product Api
-        public function deletProduct($id){
+        public function deleteProduct($id){
             $deleteProduct  = Product::findOrFail($id);
             $deleteProduct->delete();
             $deleteProduct->update_at = null;
@@ -66,7 +66,7 @@ class ProductApiController extends Controller
 
     //ForceDelete Product Api
         public function forceDeleteProduct($id){
-            $forceDeleteProduct   = product::where('id' , $id)->whereNotNull('deleted_at');
+            $forceDeleteProduct = Product::where('id' , $id)->whereNotNull('deleted_at');
             if($forceDeleteProduct){
                 $forceDeleteProduct->forceDelete();
                 return response()->json($forceDeleteProduct);
