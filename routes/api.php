@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\ApiControllers\{
     CategoryApiController, SubCategoryApiController, ProductApiController
 };
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,7 +36,7 @@ Route::get('/subcategories' , [SubCategoryApiController::class , 'getSubCategori
 //Save SubCategory Api
 Route::post('/subcategories' , [SubCategoryApiController::class , 'storeSubCategory']);
 //Update SubCategory Api
-Route::put('/subcategoryies' , [SubCategoryApiController::class , 'updateSubCategory']);
+Route::put('/subcategories' , [SubCategoryApiController::class , 'updateSubCategory']);
 //delete SubCategory Api
 Route::delete('/subcategories' , [SubCategoryApiController::class , 'deleteSubCategory']);
 //------------------------------------------------------------------------------------------

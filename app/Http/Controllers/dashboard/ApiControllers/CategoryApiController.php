@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard\ApiControllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 
 class CategoryApiController extends Controller

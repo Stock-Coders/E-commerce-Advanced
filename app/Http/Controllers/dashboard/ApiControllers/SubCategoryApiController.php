@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\dashboard\ApiControllers;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\SubCategory;
 
 class SubCategoryApiController extends Controller
 {
-    // Get All SubCategory Api
-        public function getSubCategory(){
-            $subCategory = SubCategory::all();
+    // Get All SubCategories Api
+        public function getSubCategories(){
+            $subCategory = SubCategory::with('category')->get();
             return response()->json($subCategory);
         }
     // Save New subCategory Api
