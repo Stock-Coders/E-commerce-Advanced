@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\dashboard\ApiControllers\CategoryApiController;
-use App\Http\Controllers\dashboard\ApiControllers\SubCategoryApiController;
-use App\Http\Controllers\dashboard\ApiControllers\ProductApiController;
+use App\Http\Controllers\dashboard\ApiControllers\{
+    CategoryApiController, SubCategoryApiController, ProductApiController
+};
 /*
 |--------------------------------------------------------------------------
 | API Routes
