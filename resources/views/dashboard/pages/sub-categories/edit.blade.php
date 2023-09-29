@@ -1,19 +1,19 @@
 @extends('dashboard.layouts.master')
-@section('title' , "Edit Category ($category->title)")
+@section('title' , "Edit Sub-category ($subCategory->title)")
 @section('main-content')
 <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-12">
-        {{-- <h2 class="page-title">Edit Category</h2> --}}
+        {{-- <h2 class="page-title">Edit Sub-category</h2> --}}
         {{-- <p class="text-muted"></p> --}}
         <div class="card shadow mb-4">
           <div class="card-header">
-            <strong class="card-title fs-2">Edit Category ({{ $category->title }})</strong>
+            <strong class="card-title fs-2">Edit Sub-category ({{ $subCategory->title }})</strong>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">
-                <form action="{{ route('subcategories.update', $category->id) }}" method="post">
+                <form action="{{ route('subcategories.update', $subCategory->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     @include('dashboard.pages.sub-categories.form')

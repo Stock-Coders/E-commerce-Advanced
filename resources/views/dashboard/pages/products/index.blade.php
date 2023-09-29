@@ -30,7 +30,7 @@
             </div>
         </td> --}}
         <td>{{ $product->title }}</td>
-        <td>{{ $product->description ?? 'N/A' }}</td>
+        <td>{{ Str::words($product->description, '5', '...') ?? 'N/A' }}</td>
         <td>{{ $product->price }}</td>
         <td>{{ $product->available_quantity }}</td>
         <td>{{ $product->category->title ?? 'N/A' }}</td>

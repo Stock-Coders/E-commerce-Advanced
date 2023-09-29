@@ -27,7 +27,7 @@
             </div>
         </td> --}}
         <td>{{ $subCategory->title }}</td>
-        <td>{{ $subCategory->description ?? 'N/A' }}</td>
+        <td>{{ Str::words($subCategory->description, '5', '...') ?? 'N/A' }}</td>
         <td>{{ $subCategory->catgeory->title ?? 'N/A' }}</td>
         <td>{{ $subCategory->create_user_id ?? 'N/A' }}</td>
         <td>{{ $subCategory->update_user_id ?? 'N/A' }}</td>

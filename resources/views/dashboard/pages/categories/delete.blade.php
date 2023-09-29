@@ -28,8 +28,8 @@
             </div>
         </td> --}}
         <td>{{ $category->title }}</td>
-        <td>{{ $category->description ?? 'N/A' }}</td>
-        <td>{{ $category->create_user->name ?? '...' }}</td>
+        <td>{{ Str::words($category->description, '5', '...') ?? 'N/A' }}</td>
+        <td>{{ $category->create_user->name ?? 'N/A' }}</td>
         <td>{{ $category->update_user->name ?? 'N/A' }}</td>
         <td>{{ $category->created_at }}</td>
         <td>{{ $category->updated_at ?? 'N/A' }}</td>
