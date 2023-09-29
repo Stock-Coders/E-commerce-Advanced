@@ -87,11 +87,13 @@ class CategoryController extends Controller
             if($category == null){
                 return view('dashboard.pages.categories.404.categories-404');
             }
-            if(auth()->user()->user_type == "admin"){
-                return view('dashboard.pages.categories.edit', compact('category'));
-            }
-            else{ //auth()->user()->user_type == "moderator"
-                return view('dashboard.pages.categories.unauthorized.unauthorized');
+            else{
+                if(auth()->user()->user_type == "admin"){
+                    return view('dashboard.pages.categories.edit', compact('category'));
+                }
+                else{ //auth()->user()->user_type == "moderator"
+                    return view('dashboard.pages.categories.unauthorized.unauthorized');
+                }
             }
         }
 

@@ -38,8 +38,7 @@
                 <form action="{{ route('subcategories.destroy', $subCategory->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-5">Delete</button>
-                    <a href="{{ route('subcategories.show', $subCategory->id) }}" class="btn btn-warning btn-sm font-weight-bold fs-5">Show</a>
+                    <a href="{{ route('subcategories.show', $subCategory->id) }}" class="btn btn-warning btn-sm font-weight-bold fs-6">Show</a>
                     @if(auth()->user()->user_type == "admin")
                     <a href="{{ route('subcategories.edit', $subCategory->id) }}" class="btn btn-primary btn-sm font-weight-bold fs-6">Edit</a>
                     <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6">Delete</button>
