@@ -10,8 +10,8 @@ class ProductApiController extends Controller
 {
     //Get All Api Products
     public function getProducts(){
-        $producs            = Product::all();
-        return response()->json($producs);
+        $products            = Product::all();
+        return response()->json($products);
     }
 
     //Get ALL Delete Products Api
