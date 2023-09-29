@@ -17,7 +17,7 @@
         <th class="font-weight-bold">Created At</th>
         <th class="font-weight-bold">Updated At</th>
         <th class="font-weight-bold">Deleted At</th>
-        <th class="font-weight-bold">Actions</th>
+        <th class="font-weight-bold">Action</th>
     </tr>
     </thead>
     <tbody>

@@ -14,7 +14,7 @@
         <th class="font-weight-bold">Updated At</th>
         <th class="font-weight-bold">Deleted At</th>
         @if(auth()->user()->user_type == "admin")
-        <th class="font-weight-bold">Actions</th>
+        <th class="font-weight-bold">Action</th>
         @endif
     </tr>
     </thead>
