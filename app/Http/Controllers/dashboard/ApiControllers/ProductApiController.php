@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dashboard;
+namespace App\Http\Controllers\dashboard\ApiControllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
