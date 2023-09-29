@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryApiController;
 use App\Http\Controllers\subCategoryApiController;
+use App\Http\Controllers\ProductApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,3 +38,21 @@ Route::post('/subcategories' , [subCategoryApiController::class , 'storeSubCateg
 Route::put('/subcategoryies' , [subCategoryApiController::class , 'updateSubCategory']);
 //delete SubCategory Api
 Route::delete('/subcategories' , [subCategoryApiController::class , 'deleteSubCategory']);
+//------------------------------------------------------------------------------------------
+//--------------->Product Api Controller
+// Get All Products  Api (Index)
+Route::get('/products' , [ProductApiController::class , 'getProducts']);
+//Get All Delete Products  Api (Delete)
+Route::get('/product/delete' , [ProductApiController::class , 'getDeletedProducts']);
+//get Single Products  (Show)
+Route::get('/products/{id}' , [ProductApiController::class , 'getProduct']);
+//save New Product
+Route::post('/products' , [ProductApiController::class , 'storeProduct']);
+// Update Product Api
+Route::put('/products/{id}' ,[ProductApiController::class ,'updateProduct']);
+//Delete Api Product
+Route::delete('/products/{id}',[ProductApiController::class,'deleteProduct']);
+//restore Products Api
+Route::get('/product/restore/{id}' , [ProductApiController::class , 'restoreProduct']);
+//force Or Permanent Delete Api
+Route::any('/product/forceDelete/{id}' , [ProductApiController::class , 'forceDeleteProduct']);
