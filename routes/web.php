@@ -2,7 +2,7 @@
 // Website Controllers
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\website\{MainController,
-    ProductsController, ProfileController};
+    ProductsController, ProfileController, ContactController};
 // Dashboard Controllers
 use App\Http\Controllers\dashboard\{DashboardMainController,
     CategoryController, SubCategoryController, ProductController};
@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\website\HomeController::class, 'index'
 Route::get('/about' , [MainController::class, 'about'])->name('about');
 //contact Page
 Route::get('/contact' , [MainController::class, 'contact'])->name('contact');
+Route::post('/contact' , [ContactController::class, 'store'])->name('contact.store');
 //cart page
 Route::get('/cart', [MainController::class, 'cart'])->name('cart');
 //profile Page
