@@ -29,12 +29,11 @@
           </span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="javascript:void(0);">Profile</a>
-          <a class="dropdown-item" href="javascript:void(0);">Settings</a>
-          <a class="dropdown-item" href="javascript:void(0);">Activities</a>
+          <a class="dropdown-item" href="javascript:void(0);">
+            <i class="fe fe-user fe-16"></i> Profile
+          </a>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout-form').submit();">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            Logout
+            <i class="fe fe-log-out"></i> Logout
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: ;">
                 @csrf
             </form>

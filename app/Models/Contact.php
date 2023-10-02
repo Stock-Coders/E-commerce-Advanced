@@ -12,7 +12,7 @@ class Contact extends Model
     protected $guarded = [];
 
     public $timestamps = false;
-    
+
     public function create_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'customer_id', 'id');

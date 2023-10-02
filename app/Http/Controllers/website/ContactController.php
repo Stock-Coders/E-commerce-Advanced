@@ -25,16 +25,17 @@ class ContactController extends Controller
         $contact->email       = $request->email;
         $contact->subject     = $request->subject;
         $contact->message     = $request->message;
-        if(auth()->user()->user_type == "customer"){
-            $contact->customer_id = auth()->user()->id;
-        }
-        elseif(!auth()->user()){
-            $contact->customer_id = null;
+        if(auth()->user()){
+            if(auth()->user()->user_type == "customer"){
+                $contact->customer_id = auth()->user()->id;
+            }
+            else{
+                return redirect()->route('contact')->with("unsuccessful_contact", "Your're unauthorized to do this action.");
+            }
         }
         else{
-            return redirect()->route('contact')->with("unsuccessful_contact", "Your're unauthorized to do this action.");
+            $contact->customer_id = null;
         }
-
         $contact->created_at  = Carbon::now()->toDateTimeString();;
         $contact->save();
 

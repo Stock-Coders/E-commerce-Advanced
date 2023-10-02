@@ -69,7 +69,7 @@
             <a href="#sub-categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
               <i class="fe fe-layers fe-16"></i>
               <span class="ml-3 item-text">Sub-categories</span>
-              <span class="badge badge-pill badge-primary">New</span>
+              {{-- <span class="badge badge-pill badge-primary">New</span> --}}
             </a>
             <ul class="collapse list-unstyled pl-4 w-100" id="sub-categories">
               <li class="nav-item">
@@ -103,6 +103,14 @@
               </li>
           </ul>
         </li>
+
+        <li class="nav-item w-100">
+            <a class="nav-link" href="{{ route('contacts.index') }}">
+              <i class="fe fe-message-square fe-16"></i>
+              <span class="ml-3 item-text">Contacts</span>
+              <span class="badge badge-pill badge-primary">New</span>
+            </a>
+          </li>
 
       </ul>
       {{-- <div class="btn-box w-100 mt-4 mb-1">

@@ -70,6 +70,10 @@ Route::group([
         Route::get('/product/delete',[ProductController::class , 'delete'])->name('products.delete');  //Route Function softDelete Category
         Route::get('/product/restore/{id}',[ProductController::class , 'restore'])->name('products.restore');  //Route Function restore
         Route::delete('/product/forceDelete/{id}',[ProductController::class , 'forceDelete'])->name('products.forceDelete');  //Route Function forceDelete
+
+        Route::get('/contacts',[App\Http\Controllers\dashboard\ContactController::class , 'index'])->name('contacts.index');
+        Route::get('/contacts/{id}',[App\Http\Controllers\dashboard\ContactController::class , 'show'])->name('contacts.show');
+        Route::delete('/product/delete/{id}',[App\Http\Controllers\dashboard\ContactController::class , 'destroy'])->name('contacts.destroy');
     });
 });
 //*****-------------------- END dashboard/admin route. --------------------*****//
