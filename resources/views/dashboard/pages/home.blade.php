@@ -6,7 +6,7 @@
       <div class="col-12">
         <div class="row align-items-center mb-2">
           <div class="col">
-            <h2 class="h5 page-title">Welcome!</h2>
+            <h2 class="h5 page-title">Welcome, <span class="text-primary fw-bold">{{ auth()->user()->name }}</span>!</h2>
           </div>
           <div class="col-auto">
             <form class="form-inline">
