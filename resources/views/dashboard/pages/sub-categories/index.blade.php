@@ -41,8 +41,8 @@
         <td>{{ $subCategory->title }}</td>
         <td>{{ Str::words($subCategory->description, '5', '...') ?? 'N/A' }}</td>
         <td>{{ $subCategory->catgeory->title ?? 'N/A' }}</td>
-        <td>{{ $subCategory->create_user_id ?? 'N/A' }}</td>
-        <td>{{ $subCategory->update_user_id ?? 'N/A' }}</td>
+        <td>{{ $subCategory->create_user->name ?? 'N/A' }}</td>
+        <td>{{ $subCategory->update_user->name ?? 'N/A' }}</td>
         <td>{{ $subCategory->created_at }}</td>
         <td>{{ $subCategory->updated_at ?? 'N/A' }}</td>
         <td class="text-light ">

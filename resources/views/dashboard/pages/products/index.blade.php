@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.master')
-@section('title' , 'Sub-categories')
+@section('title' , 'Products')
 @section('main-content')
 <!-- Bordered table -->
-@include('dashboard.pages.sub-categories.index-messages.messages')
+@include('dashboard.pages.products.index-messages.messages')
 <div class="row">
     <div class="col-md-12 grid-margin">
       <div class="d-flex justify-content-end flex-wrap">

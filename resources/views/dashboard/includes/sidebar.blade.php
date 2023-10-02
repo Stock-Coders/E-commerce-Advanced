@@ -17,13 +17,23 @@
       </div>
       <ul class="navbar-nav flex-fill w-100 mb-2">
         <li class="nav-item dropdown">
-          <a href="{{ route('dashboard') }}" class="dropdown-toggle nav-link">
+          <a href="{{ route('dashboard') }}" class="nav-link">
             <i class="fe fe-home fe-16"></i>
             <span class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
             <span class="pl-2">{{ auth()->user()->user_type == 'admin' ? '(Admin)' : '(Moderator)' }}</span>
           </a>
         </li>
       </ul>
+
+      <ul class="navbar-nav flex-fill w-100 mb-2">
+        <li class="nav-item dropdown">
+          <a href="{{ route('home') }}" class="nav-link">
+            <i class="fe fe-monitor fe-16"></i>
+            <span class="ml-3 item-text">Website Homepage</span>
+          </a>
+        </li>
+      </ul>
+
       <p class="text-muted nav-heading mt-4 mb-1 pl-2">
         <span>Dashboard Components</span>
       </p>

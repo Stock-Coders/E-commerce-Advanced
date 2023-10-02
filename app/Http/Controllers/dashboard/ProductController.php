@@ -63,7 +63,7 @@ class ProductController extends Controller
         $product->updated_at         = null;
         $product->save();
 
-        return redirect()->route('products.index')->with('created_product_successfully' , "The product ($product->title)has been Created Successfully.");
+        return redirect()->route('products.index')->with('successfully' , "The product ($product->title)has been Created Successfully.");
 
     }
 
@@ -141,7 +141,7 @@ class ProductController extends Controller
         $product->sub_category_id    = $request->sub_category_id;
         $product->update_user_id    = auth()->user()->id;
         $product->save();
-        return redirect()->route('products.index')->with('updated_product_successfully', "The product ($product_old->title) has Been updated Successfully.");
+        return redirect()->route('products.index')->with('successfully', "The product ($product_old->title) has Been updated Successfully.");
     }
 
     /**
@@ -156,7 +156,7 @@ class ProductController extends Controller
         $product->delete();
         $product->updated_at = null;
         $product->save();
-        return redirect()->route('products.index')->with('softDeleted_product_successfully' , "The product ($product->title) has been moved to trash successfully.");
+        return redirect()->route('products.index')->with('successfully' , "The product ($product->title) has been moved to trash successfully.");
     }
 
     //function Delete
@@ -171,12 +171,12 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->updated_at = null;
         $product->save();
-        return redirect()->route('products.index')->with('restored_product_successfully', "The product ($product->title) has been restored successfully.");
+        return redirect()->route('products.index')->with('successfully', "The product ($product->title) has been restored successfully.");
     }
 
     public function forceDelete($id){
         $product = Product::where('id', $id);
         $product->forceDelete();
-        return redirect()->route('products.index')->with('forceDeleted_product_successfully', "The product has been permanently deleted successfully.");
+        return redirect()->route('products.index')->with('successfully', "The product has been permanently deleted successfully.");
     }
 }

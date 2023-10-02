@@ -56,7 +56,7 @@ class SubCategoryController extends Controller
         $subCategory->updated_at      = null;
         $subCategory->save();
 
-        return redirect()->route('subcategories.index')->with('created_subCategory_successfully' , "The sub-category ($subCategory->title)has been Created Successfully.");
+        return redirect()->route('subcategories.index')->with('created_subCategory_successfully' , "The sub-category ($subCategory->title) has been created successfully.");
 
     }
 
@@ -127,7 +127,7 @@ class SubCategoryController extends Controller
         $subCategory->category_id    = $request->category_id;
         $subCategory->update_user_id = auth()->user()->id;
         $subCategory->save();
-        return redirect()->route('subcategories.index')->with('updated_subCategory_successfully', "The sub-category ($subCategory_old->title) has Been updated Successfully.");
+        return redirect()->route('subcategories.index')->with('updated_subCategory_successfully', "The sub-category ($subCategory_old->title) has been updated successfully.");
     }
 
     //Function Clear
