@@ -38,8 +38,10 @@
                 <div class="p-3 p-lg-5 border">
                     <div class="form-group row">
                         <div class="col-md-12">
+                            @if(!auth()->user())
                             <label for="name" class="text-black">Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="name" name="name">
+                            @endif
 </div>
     {{-- <div class="col-md-6">
         <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
