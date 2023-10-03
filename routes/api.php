@@ -28,18 +28,18 @@ Route::prefix('dashboard')->group(function () {
     // Save New  Api Category
     Route::post('/categories' , [CategoryApiController::class , 'storeCategory']);
     //update Category Api
-    Route::put('/categories' , [CategoryApiController::class , 'updateCategory']);
+    Route::put('/categories/{id}' , [CategoryApiController::class , 'updateCategory']);
     // delete Category Api
-    Route::delete('/categories' , [CategoryApiController::class , 'deleteCategory']);
+    Route::delete('/categories/{id}' , [CategoryApiController::class , 'deleteCategory']);
     // SubCategory Controller Api
     //get All SubCategory
     Route::get('/subcategories' , [SubCategoryApiController::class , 'getSubCategories']);
     //Save SubCategory Api
     Route::post('/subcategories' , [SubCategoryApiController::class , 'storeSubCategory']);
     //Update SubCategory Api
-    Route::put('/subcategories' , [SubCategoryApiController::class , 'updateSubCategory']);
+    Route::put('/subcategories/{id}' , [SubCategoryApiController::class , 'updateSubCategory']);
     //delete SubCategory Api
-    Route::delete('/subcategories' , [SubCategoryApiController::class , 'deleteSubCategory']);
+    Route::delete('/subcategories/{id}' , [SubCategoryApiController::class , 'deleteSubCategory']);
     //------------------------------------------------------------------------------------------
     //--------------->Product Api Controller
     // Get All Products  Api (Index)
