@@ -38,10 +38,13 @@
                 <div class="p-3 p-lg-5 border">
                     <div class="form-group row">
                         <div class="col-md-12">
-                            @if(!auth()->user())
+                            {{-- @if(!auth()->user()) --}}
                             <label for="name" class="text-black">Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" name="name">
-                            @endif
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                @enderror
+                            {{-- @endif --}}
 </div>
     {{-- <div class="col-md-6">
         <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
@@ -51,19 +54,28 @@
     <div class="form-group row">
         <div class="col-md-12">
             <label for="email" class="text-black">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="">
+                @error('email')
+                    <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                @enderror
 </div>
 </div>
     <div class="form-group row">
         <div class="col-md-12">
             <label for="subject" class="text-black">Subject <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="subject" name="subject">
+                <input type="text" class="form-control @error('subject') is-invalid @enderror" id="subject" name="subject">
+                @error('subject')
+                    <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                @enderror
 </div>
 </div>
     <div class="form-group row">
         <div class="col-md-12">
             <label for="message" class="text-black">Message <span class="text-danger">*</span></label>
-                <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
+                <textarea name="message" id="message" cols="30" rows="7" class="form-control @error('message') is-invalid @enderror"></textarea>
+                @error('message')
+                    <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                @enderror
 </div>
 </div>
     <div class="form-group row">
