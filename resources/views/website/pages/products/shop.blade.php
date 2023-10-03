@@ -39,7 +39,21 @@
 </div>
 </div>
 </div>
+
     <div class="row mb-5">
+        @if(session()->has('successful_rating'))
+        <p>
+            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
+                {{ session()->get('successful_rating') }}
+            </div>
+        </p>
+        @elseif(session()->has('unsuccessful_rating'))
+        <p>
+            <div class="alert alert-danger text-center mx-auto" style="width: 90%; margin-top: 3%;">
+                {{ session()->get('unsuccessful_rating') }}
+            </div>
+        </p>
+        @endif
         @forelse($products as $product)
         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
             <div class="block-4 text-center border">
@@ -50,14 +64,22 @@
         <h3><a href="javascript:void(0)">{{ $product->title }}</a></h3>
             <p class="mb-0">{{ $product->category->title ?? ''}}, {{ $product->subCategory->title ?? '' }}</p>
             <p class="text-primary font-weight-bold">{{ $product->price }} EGP</p>
-            <p>Stars!
-                <h2>Star Rating</h2>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </p>
+            <span>
+                <form action="{{ route('addRating', $product->id) }}" method="POST">
+                    @csrf
+                    <select name="rating_level" class="form-control @error('rating_level') is-invalid @enderror" onchange="this.form.submit()">
+                        <option value="" selected>----- Rate this product -----</option>
+                        <option value="1">Poor</option>
+                        <option value="2">Average</option>
+                        <option value="3">Good</option>
+                        <option value="4">Very Good</option>
+                        <option value="5">Excellent</option>
+                    </select>
+                    @error('rating_level')
+                        <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                    @enderror
+                </form>
+            </span>
 </div>
 </div>
 </div>

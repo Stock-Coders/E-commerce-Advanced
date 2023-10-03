@@ -43,6 +43,8 @@ Route::get('/checkout' , [MainController::class, 'checkout'])->name('checkout');
 Route::get('/categories', [MainController::class, 'category'])->name('category');
 //shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
+//Rating store
+Route::post('/rating/submit/{id}',[App\Http\Controllers\website\RatingController::class , 'addRating'])->name('addRating');
 //profile Pages
 Route::get('/profile/{id}', [ProfileController::class , 'showProfile'])->name('showProfile');
 Route::get('/profile/{id}/edit', [ProfileController::class , 'editProfile'])->name('editProfile');
