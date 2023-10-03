@@ -44,8 +44,8 @@ class ProductController extends Controller
         $request->validate([
             'title'              => 'required|string|max:255',
             'description'        => 'nullable|string|max:1020',
-            'price'              => 'required|numeric|string|max:1020',
-            'available_quantity' => 'required|integer|string|max:1020',
+            'price'              => 'required|numeric|max:1020',
+            'available_quantity' => 'required|integer|max:1020',
             'category_id'        => 'nullable|exists:categories,id',
             'sub_category_id'    => 'nullable|exists:sub_categories,id',
             'create_user_id'     => 'nullable|exists:users,id',
@@ -118,8 +118,8 @@ class ProductController extends Controller
         $request->validate([
             'title'              => 'required|string|max:255',
             'description'        => 'nullable|string|max:1020',
-            'price'              => 'required|numeric|string|max:1020',
-            'available_quantity' => 'required|integer|string|max:1020',
+            'price'              => 'required|numeric|max:1020',
+            'available_quantity' => 'required|integer|max:1020',
             'category_id'        => 'nullable|exists:categories,id',
             'sub_category_id'    => 'nullable|exists:sub_categories,id',
             'create_user_id'     => 'nullable|exists:users,id',

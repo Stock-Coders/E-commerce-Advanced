@@ -35,15 +35,12 @@ class ProductApiController extends Controller
         $request->validate([
             'title'              => 'required|string|max:255',
             'description'        => 'nullable|string|max:1020',
-            'price'              => 'required|numeric|string|max:1020',
-            'available_quantity' => 'required|integer|string|max:1020',
+            'price'              => 'required|numeric|max:1020',
+            'available_quantity' => 'required|integer|max:1020',
             'category_id'        => 'nullable|exists:categories,id',
             'sub_category_id'    => 'nullable|exists:sub_categories,id',
             'create_user_id'     => 'nullable|exists:users,id',
             'update_user_id'     => 'nullable|exists:users,id',
-            'created_at'         => 'nullable',
-            'updated_at'         => 'nullable',
-            'deleted_at'         => 'nullable',
         ]);
         $product = Product::create($request->all());
         return response()->json($product);
@@ -54,8 +51,8 @@ class ProductApiController extends Controller
             $request->validate([
                 'title'              => 'required|string|max:255',
                 'description'        => 'nullable|string|max:1020',
-                'price'              => 'required|numeric|string|max:1020',
-                'available_quantity' => 'required|integer|string|max:1020',
+                'price'              => 'required|numeric|max:1020',
+                'available_quantity' => 'required|integer|max:1020',
                 'category_id'        => 'nullable|exists:categories,id',
                 'sub_category_id'    => 'nullable|exists:sub_categories,id',
                 'create_user_id'     => 'nullable|exists:users,id',
