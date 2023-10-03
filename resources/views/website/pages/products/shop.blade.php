@@ -50,7 +50,14 @@
         <h3><a href="javascript:void(0)">{{ $product->title }}</a></h3>
             <p class="mb-0">{{ $product->category->title ?? ''}}, {{ $product->subCategory->title ?? '' }}</p>
             <p class="text-primary font-weight-bold">{{ $product->price }} EGP</p>
-            <p>Stars!</p>
+            <p>Stars!
+                <h2>Star Rating</h2>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
 </div>
 </div>
 </div>
