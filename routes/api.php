@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\ApiControllers\{
     CategoryApiController, SubCategoryApiController, ProductApiController
 };
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,21 +26,32 @@ Route::prefix('dashboard')->group(function () {
         //Category Api Controller
     // Get All Category Api
     Route::get('/categories' , [CategoryApiController::class , 'getCategories']);
+    //Route Delete All Category
+    Route::get('/category/delete' , [CategoryApiController::class , 'getDeletedCategories']);
     // Save New  Api Category
     Route::post('/categories' , [CategoryApiController::class , 'storeCategory']);
     //update Category Api
     Route::put('/categories/{id}' , [CategoryApiController::class , 'updateCategory']);
     // delete Category Api
     Route::delete('/categories/{id}' , [CategoryApiController::class , 'deleteCategory']);
+        //restore Categories
+        Route::get('/category/restore/{id}' , [CategoryApiController::class , 'restoreCategory']);
+        //force Or Permanent Delete Api
+        Route::any('/category/forceDelete/{id}' , [CategoryApiController::class , 'forceDeleteCategory']);
     // SubCategory Controller Api
     //get All SubCategory
     Route::get('/subcategories' , [SubCategoryApiController::class , 'getSubCategories']);
+    Route::get('/subcategory/delete' , [SubCategoryApiController::class , 'getDeletedSubCategories']);
     //Save SubCategory Api
     Route::post('/subcategories' , [SubCategoryApiController::class , 'storeSubCategory']);
     //Update SubCategory Api
     Route::put('/subcategories/{id}' , [SubCategoryApiController::class , 'updateSubCategory']);
     //delete SubCategory Api
     Route::delete('/subcategories/{id}' , [SubCategoryApiController::class , 'deleteSubCategory']);
+    //restore Categories
+    Route::get('/subcategory/restore/{id}' , [SubCategoryApiController::class , 'restoreCategory']);
+    //force Or Permanent Delete Api
+    Route::any('/subcategory/forceDelete/{id}' , [SubCategoryApiController::class , 'forceDeleteCategory']);
     //------------------------------------------------------------------------------------------
     //--------------->Product Api Controller
     // Get All Products  Api (Index)
@@ -58,5 +70,6 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/product/restore/{id}' , [ProductApiController::class , 'restoreProduct']);
     //force Or Permanent Delete Api
     Route::any('/product/forceDelete/{id}' , [ProductApiController::class , 'forceDeleteProduct']);
+
 });
 
