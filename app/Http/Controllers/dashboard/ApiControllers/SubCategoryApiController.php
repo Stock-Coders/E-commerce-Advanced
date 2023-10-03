@@ -19,12 +19,17 @@ class SubCategoryApiController extends Controller
             $request->validate([
                 'title'       => 'required|string|unique:sub_categories,title|max:255',
                 'description' => 'nullable|string|max:1020',
-                'category_id' => 'required|string|exists:categories,id',
+                'category_id' => 'required|exists:categories,id',
             ]);
             $subCategory = SubCategory::create($request->all());
             return response()->json($subCategory);
         }
             public function updateSubCategory(Request $request , $id){
+                $request->validate([
+                    'title'       => 'required|string|unique:sub_categories,title|max:255',
+                    'description' => 'nullable|string|max:1020',
+                    'category_id' => 'required|exists:categories,id',
+                ]);
                 $subCategory = SubCategory::find($id);
                 $subCategory->update($request->all());
                 return response()->json($subCategory);
