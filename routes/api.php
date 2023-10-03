@@ -34,13 +34,14 @@ Route::prefix('dashboard')->group(function () {
     Route::put('/categories/{id}' , [CategoryApiController::class , 'updateCategory']);
     // delete Category Api
     Route::delete('/categories/{id}' , [CategoryApiController::class , 'deleteCategory']);
-        //restore Categories
-        Route::get('/category/restore/{id}' , [CategoryApiController::class , 'restoreCategory']);
-        //force Or Permanent Delete Api
-        Route::any('/category/forceDelete/{id}' , [CategoryApiController::class , 'forceDeleteCategory']);
+    //restore Categories
+    Route::get('/category/restore/{id}' , [CategoryApiController::class , 'restoreCategory']);
+    //force Or Permanent Delete Api
+    Route::any('/category/forceDelete/{id}' , [CategoryApiController::class , 'forceDeleteCategory']);
     // SubCategory Controller Api
     //get All SubCategory
     Route::get('/subcategories' , [SubCategoryApiController::class , 'getSubCategories']);
+    //Get All Delete subCategory  Api
     Route::get('/subcategory/delete' , [SubCategoryApiController::class , 'getDeletedSubCategories']);
     //Save SubCategory Api
     Route::post('/subcategories' , [SubCategoryApiController::class , 'storeSubCategory']);
