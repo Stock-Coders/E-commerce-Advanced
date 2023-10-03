@@ -26,13 +26,16 @@ class RatingController extends Controller
                 $rating->customer_id = auth()->user()->id;
             }
             else{
-                return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action.");
+                return redirect()->back()->with("unsuccessful_rating", 'Your\'re unauthorized to do this action as ('.auth()->user()->user_type.").");
             }
+        }
+        else{
+            return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action.");
         }
         $rating->product_id   = $request->product_id;
         $rating->created_at   = Carbon::now()->toDateTimeString();
         $rating->save();
 
-        return redirect()->back()->with("successful_rating", "Your form was submitted successfully.");
+        return redirect()->back()->with("successful_rating", "Your rate has been added successfully.");
     }
 }
