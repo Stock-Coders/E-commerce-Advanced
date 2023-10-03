@@ -10,11 +10,18 @@ class ContactController extends Controller
 {
     public function store(Request $request){
         //Validate Contact
+        if(auth()->user()){
+            $name = ['name' => 'nullable|max:255'];
+        }
+        else{
+            $name = ['name' => 'required|max:255'];
+        }
+
         $request->validate([
-            'name'        => 'nullable|max:1020',
+            $name,
             'email'       => 'required|email',
             'phone'       => 'nullable|min:11|max:11',
-            'subject'     => 'required|max:1020',
+            'subject'     => 'required|max:255',
             'message'     => 'required|max:1020',
             'customer_id' => 'nullable|exists:users,id',
         ]);
