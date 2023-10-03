@@ -11,11 +11,11 @@ class RatingApiController extends Controller
     //Rating Api Controller
     //Get All Rating
     public function getRatings(){
-        $ratings = Rating::with('create_user')->get();
+        $ratings = Rating::with('customer')->get();
         return response()->json($ratings);
     }
 
-    public function destroy($id){
+    public function deleteRating($id){
         $rating = Rating::find($id);
         $rating->delete();
         return response()->json($ratings);

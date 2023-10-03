@@ -44,7 +44,7 @@ class ContactController extends Controller
         else{
             $contact->customer_id = null;
         }
-        $contact->created_at  = Carbon::now()->toDateTimeString();;
+        $contact->created_at  = Carbon::now()->toDateTimeString();
         $contact->save();
 
         return redirect()->route('contact')->with("successful_contact", "Your form was submitted successfully.");

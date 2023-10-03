@@ -74,9 +74,9 @@ Route::prefix('dashboard')->group(function () {
     Route::any('/product/forceDelete/{id}' , [ProductApiController::class , 'forceDeleteProduct']);
 
     // Get All Ratings  Api
-    Route::get('/ratings' , [RatingController::class , 'getRatings']);
+    Route::get('/ratings' , [RatingApiController::class , 'getRatings']);
     //Delete Api Rating
-    Route::delete('/ratings/{id}',[RatingController::class,'deleteRating']);
+    Route::delete('/ratings/{id}',[RatingApiController::class,'deleteRating']);
 
 });
 

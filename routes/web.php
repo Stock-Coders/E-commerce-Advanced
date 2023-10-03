@@ -73,7 +73,11 @@ Route::group([
 
         Route::get('/contacts',[App\Http\Controllers\dashboard\ContactController::class , 'index'])->name('contacts.index');
         Route::get('/contacts/{id}',[App\Http\Controllers\dashboard\ContactController::class , 'show'])->name('contacts.show');
-        Route::delete('/product/delete/{id}',[App\Http\Controllers\dashboard\ContactController::class , 'destroy'])->name('contacts.destroy');
+        Route::delete('/contact/delete/{id}',[App\Http\Controllers\dashboard\ContactController::class , 'destroy'])->name('contacts.destroy');
+
+        Route::get('/ratings',[App\Http\Controllers\dashboard\RatingController::class , 'index'])->name('ratings.index');
+        Route::get('/ratings/{id}',[App\Http\Controllers\dashboard\RatingController::class , 'show'])->name('ratings.show');
+        Route::delete('/rating/delete/{id}',[App\Http\Controllers\dashboard\RatingController::class , 'destroy'])->name('ratings.destroy');
     });
 });
 //*****-------------------- END dashboard/admin route. --------------------*****//

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('rating_level' , [1, 2, 3, 4, 5]);
             $table->foreignId('customer_id')->constrained('users');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->string('product_name')->nullable();
             $table->timestamp('created_at');
         });
     }
