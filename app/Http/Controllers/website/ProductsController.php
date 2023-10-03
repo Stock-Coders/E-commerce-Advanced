@@ -9,6 +9,7 @@ class ProductsController extends Controller
 {
     //
     public function shop(){
-        return view('website.pages.products.shop');
+        $products = \App\Models\Product::all();
+        return view('website.pages.products.shop', compact('products'));
     }
 }
