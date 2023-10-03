@@ -42,7 +42,7 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'title'              => 'required|string|unique:sub_categories,title|max:255',
+            'title'              => 'required|string|max:255',
             'description'        => 'nullable|string|max:1020',
             'price'              => 'required|numeric|string|max:1020',
             'available_quantity' => 'required|integer|string|max:1020',
@@ -116,7 +116,7 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'title'              => 'required|string|unique:sub_categories,title|max:255',
+            'title'              => 'required|string|max:255',
             'description'        => 'nullable|string|max:1020',
             'price'              => 'required|numeric|string|max:1020',
             'available_quantity' => 'required|integer|string|max:1020',

@@ -33,14 +33,14 @@ class ProductApiController extends Controller
     //Save New Product Api
     public function storeProduct(Request $request){
         $request->validate([
-            'title'                 => 'Required|string|unique:sub_categories,title|max:255',
-            'description'           => 'nullable|string|max:1020',
-            'price'                 => 'required|numeric||string|max:1020',
-            'available_quantity'    => 'required|integer|string|max:1020',
-            'category_id'           => 'nullable|exists:categories,id',
-            'sub_category_id'       => 'nullable|exists:sub_categories,id',
-            'create_user_id'        => 'nullable|exists:users,id',
-            'update_user_id'        => 'nullable|exists:users,id',
+            'title'              => 'required|string|max:255',
+            'description'        => 'nullable|string|max:1020',
+            'price'              => 'required|numeric|string|max:1020',
+            'available_quantity' => 'required|integer|string|max:1020',
+            'category_id'        => 'nullable|exists:categories,id',
+            'sub_category_id'    => 'nullable|exists:sub_categories,id',
+            'create_user_id'     => 'nullable|exists:users,id',
+            'update_user_id'     => 'nullable|exists:users,id',
         ]);
         $product = Product::create($request->all());
         return response()->json($product);
@@ -49,14 +49,14 @@ class ProductApiController extends Controller
     //Update Product Api
         public function updateProduct(Request $request , $id){
             $request->validate([
-                'title'                 => 'Required|string|unique:sub_categories,title|max:255',
-                'description'           => 'nullable|string|max:1020',
-                'price'                 => 'required|numeric||string|max:1020',
-                'available_quantity'    => 'required|integer|string|max:1020',
-                'category_id'           => 'nullable|exists:categories,id',
-                'sub_category_id'       => 'nullable|exists:sub_categories,id',
-                'create_user_id'        => 'nullable|exists:users,id',
-                'update_user_id'        => 'nullable|exists:users,id',
+                'title'              => 'required|string|max:255',
+                'description'        => 'nullable|string|max:1020',
+                'price'              => 'required|numeric|string|max:1020',
+                'available_quantity' => 'required|integer|string|max:1020',
+                'category_id'        => 'nullable|exists:categories,id',
+                'sub_category_id'    => 'nullable|exists:sub_categories,id',
+                'create_user_id'     => 'nullable|exists:users,id',
+                'update_user_id'     => 'nullable|exists:users,id',
             ]);
             $product = Product::find($id);
             $product->update($request->all());
