@@ -21,11 +21,6 @@ class RatingController extends Controller
         //Store Rating
         $rating               = new Rating;
         $rating->rating_level = $request->rating_level;
-        if($request->rating_level == 1)     {$rating_level_string = "Poor";}
-        elseif($request->rating_level == 2) {$rating_level_string = "Average";}
-        elseif($request->rating_level == 3) {$rating_level_string = "Good";}
-        elseif($request->rating_level == 4) {$rating_level_string = "Very Good";}
-        else                                {$rating_level_string = "Excellent";}
         if(auth()->user()){
             if(auth()->user()->user_type == "customer"){
                 $rating->customer_id = auth()->user()->id;
