@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\dashboard\ApiControllers;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -11,10 +10,8 @@ class ProductApiController extends Controller
     //Get All Api Products
     public function getProducts(){
         // $products = Product::all();
-
         $products = Product::with('create_user')->with('update_user')
             ->with('category')->with('subCategory')->get();
-
         return response()->json($products);
     }
 
