@@ -29,4 +29,9 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
+
+    public function rating(): \Illuminate\Database\Eloquent\Relations\hasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
 }
