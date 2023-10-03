@@ -26,24 +26,18 @@ class RatingController extends Controller
         elseif($request->rating_level == 3) {$rating_level_string = "Good";}
         elseif($request->rating_level == 4) {$rating_level_string = "Very Good";}
         else                                {$rating_level_string = "Excellent";}
-        $rating->email        = $request->email;
-        $rating->product_id   = $request->subject;
-        $rating->message      = $request->message;
         if(auth()->user()){
             if(auth()->user()->user_type == "customer"){
                 $rating->customer_id = auth()->user()->id;
             }
             else{
-                return redirect()->route('rating')->with("unsuccessful_rating", "Your're unauthorized to do this action.");
+                return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action.");
             }
-        }
-        else{
-            $rating->customer_id = null;
         }
         $rating->product_id   = $request->product_id;
         $rating->created_at   = Carbon::now()->toDateTimeString();
         $rating->save();
 
-        return redirect()->route('rating')->with("successful_rating", "Your form was submitted successfully.");
+        return redirect()->back()->with("successful_rating", "Your form was submitted successfully.");
     }
 }
