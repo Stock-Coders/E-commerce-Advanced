@@ -41,6 +41,9 @@ class ProductApiController extends Controller
             'sub_category_id'    => 'nullable|exists:sub_categories,id',
             'create_user_id'     => 'nullable|exists:users,id',
             'update_user_id'     => 'nullable|exists:users,id',
+            'created_at'         => 'nullable',
+            'updated_at'         => 'nullable',
+            'deleted_at'         => 'nullable',
         ]);
         $product = Product::create($request->all());
         return response()->json($product);
