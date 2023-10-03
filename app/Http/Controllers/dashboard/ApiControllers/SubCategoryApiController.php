@@ -14,8 +14,13 @@ class SubCategoryApiController extends Controller
             ->with('category')->get();
             return response()->json($subCategory);
         }
+        //Get ALL Delete Category Api
+        public Function getDeletedsubCategories(){
+        $AllDeleteSubCategories = SubCategory::onlyTrashed()->get();
+        return response()->json($AllDeleteSubCategories);
+    }
     // Save New subCategory Api
-        public function storeSubCategory(Request $request){
+    public function storeSubCategory(Request $request){
             $request->validate([
                 'title'       => 'required|string|unique:sub_categories,title|max:255',
                 'description' => 'nullable|string|max:1020',
@@ -39,4 +44,24 @@ class SubCategoryApiController extends Controller
                 $deleteSubCategory = SubCategory::destroy($id);
                 return response()->json($deleteSubCategory);
             }
+                        //Restore Category Api
+                        public function restoreSubCategory($id){
+                            $restoreSubCategory = SubCategory::withTrashed()->find($id);
+                            $restoreSubCategory->restore();
+                            $restoreSubCategory->update_at = null;
+                            $restoreSubCategory->save();
+                            return response()->json($restoreSubCategory);
+                        }
+
+                    //ForceDelete Category Api
+                        public function forceDeleteSubCategory($id){
+                            $forceDeleteSubCategory = SubCategory::where('id' , $id)->whereNotNull('deleted_at');
+                            if($forceDeleteSubCategory){
+                                $forceDeleteSubCategory->forceDelete();
+                                return response()->json($forceDeleteSubCategory);
+                            }
+                            else{
+                                return response()->json();
+                            }
+                        }
         }

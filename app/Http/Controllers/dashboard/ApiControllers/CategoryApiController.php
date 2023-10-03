@@ -14,7 +14,11 @@ class CategoryApiController extends Controller
         $categories = Category::with('create_user')->with('update_user')->get();
         return response()->json($categories);
     }
-
+      //Get ALL Delete Category Api
+      public Function getDeletedCategories(){
+        $AllDeleteCategories = Category::onlyTrashed()->get();
+        return response()->json($AllDeleteCategories);
+    }
     //Save New Category
     public function storeCategory(Request $request){
         $request->validate([
@@ -40,6 +44,26 @@ class CategoryApiController extends Controller
     public function deleteCategory($id){
         $deleteCategory = Category::destroy($id);
         return response()->json($deleteCategory);
-       }
+        }
 
+            //Restore Category Api
+            public function restoreCategory($id){
+                $restoreCategory = Category::withTrashed()->find($id);
+                $restoreCategory->restore();
+                $restoreCategory->update_at = null;
+                $restoreCategory->save();
+                return response()->json($restoreCategory);
+            }
+
+        //ForceDelete Category Api
+            public function forceDeleteCategory($id){
+                $forceDeleteCategory = Category::where('id' , $id)->whereNotNull('deleted_at');
+                if($forceDeleteCategory){
+                    $forceDeleteCategory->forceDelete();
+                    return response()->json($forceDeleteCategory);
+                }
+                else{
+                    return response()->json();
+                }
+            }
 }
