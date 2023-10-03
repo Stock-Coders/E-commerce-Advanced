@@ -41,11 +41,11 @@ class SubCategoryController extends Controller
     {
         //
         $request->validate([
-            'title'         =>'required|string|unique:sub_categories,title|max:255',
-           'description'    =>'nullable|string|max:1020',
-           'category_id'    => 'required|exists:categories,id',
-           'create_user_id' =>'nullable|exists:users,id',
-           'update_user_id' =>'nullable|exists:users,id',
+            'title'          =>'required|string|unique:sub_categories,title|max:255',
+            'description'    =>'nullable|string|max:1020',
+            'category_id'    => 'required|exists:categories,id',
+            'create_user_id' =>'nullable|exists:users,id',
+            'update_user_id' =>'nullable|exists:users,id',
         ]);
 
         $subCategory   = new SubCategory();

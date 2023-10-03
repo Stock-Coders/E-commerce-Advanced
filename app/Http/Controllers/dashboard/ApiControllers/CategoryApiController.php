@@ -26,6 +26,10 @@ class CategoryApiController extends Controller
     }
     //update Category
     public function updateCategory(Request $request , $id){
+        $request->validate([
+            'title'         => 'required|string|max:255',
+            'description'   => 'nullable|string|max:1020',
+        ]);
         $category = Category::find($id);
         $category->update($request->all());
         return response()->json($category) ;

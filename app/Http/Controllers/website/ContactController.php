@@ -4,21 +4,22 @@ namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class ContactController extends Controller
 {
     public function store(Request $request){
         //Validate Contact
-        if(auth()->user()){
-            $name = ['name' => 'nullable|max:255'];
-        }
-        else{
-            $name = ['name' => 'required|max:255'];
-        }
-
         $request->validate([
-            $name,
+            'name' => function ($request) {
+                if (!Auth::id()) {
+                    return ['required'];
+                }
+                else{
+                    return ['nullable'];
+                }
+            },
             'email'       => 'required|email',
             'phone'       => 'nullable|min:11|max:11',
             'subject'     => 'required|max:255',
