@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\ApiControllers\{
-    CategoryApiController, SubCategoryApiController,
-    ProductApiController, RatingApiController
+    CategoryApiController, ContactApiController, SubCategoryApiController,
+    ProductApiController, RatingApiController,
 };
 use App\Models\Category;
 
@@ -72,11 +72,19 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/product/restore/{id}' , [ProductApiController::class , 'restoreProduct']);
     //force Or Permanent Delete Api
     Route::any('/product/forceDelete/{id}' , [ProductApiController::class , 'forceDeleteProduct']);
-
     // Get All Ratings  Api
     Route::get('/ratings' , [RatingApiController::class , 'getRatings']);
+    //single Rating
+    Route::get('/ratings/{id}' , [RatingApiController::class , 'getRating']);
     //Delete Api Rating
     Route::delete('/ratings/{id}',[RatingApiController::class,'deleteRating']);
+// Contact Api Controller
+//Get All Contact Api
+    Route::get('/contacts' , [ContactApiController::class , 'getAllContacts']);
+    //Get Single Contact Api
+    Route::get('/contacts/{id}' , [ContactApiController::class , 'getContact']);
+    //Delete Contact Api
+    Route::delete('/contacts/{id}' , [ContactApiController::class , 'deleteContact']);
 
 });
 

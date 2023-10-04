@@ -14,11 +14,15 @@ class RatingApiController extends Controller
         $ratings = Rating::with('customer')->get();
         return response()->json($ratings);
     }
-
+    //Get Single Api  Rating
+        public function getRating($id){
+            $rating = Rating::find($id);
+            return response()->json($rating);
+        }
     public function deleteRating($id){
         $rating = Rating::find($id);
         $rating->delete();
-        return response()->json($ratings);
+        return response()->json($rating);
     }
 
 }
