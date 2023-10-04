@@ -94,9 +94,20 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link pl-3" href="{{ route('products.delete') }}"><span class="ml-1 item-text">All Deleted Products</span></a>
-              </li>
+            </li>
+            <li class="nav-link">
+                <i class="fe fe-star fe-16"></i>
+                <a class="pl-3 text-decoration-none text-dark" href="{{ route('ratings.index') }}"><span class="ml-1 item-text">All Products Ratings</span></a>
+            </li>
           </ul>
         </li>
+
+        {{-- <li class="nav-item w-100">
+            <a class="nav-link" href="{{ route('ratings.index') }}">
+              <i class="fe fe-star fe-16"></i>
+              <span class="ml-3 item-text">Products Ratings</span>
+            </a>
+        </li> --}}
 
         <li class="nav-item w-100">
             <a class="nav-link" href="{{ route('contacts.index') }}">
