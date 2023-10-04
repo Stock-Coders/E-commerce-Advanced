@@ -52,7 +52,7 @@
                     <form action="{{ route('products.forceDelete', $product->id) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6 mx-1">Permanent Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6 mx-1">Delete from Trash</button>
                     </form>
                 </div>
             </div>

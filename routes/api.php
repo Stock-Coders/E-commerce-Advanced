@@ -37,7 +37,7 @@ Route::prefix('dashboard')->group(function () {
     Route::delete('/categories/{id}' , [CategoryApiController::class , 'deleteCategory']);
     //restore Categories
     Route::get('/category/restore/{id}' , [CategoryApiController::class , 'restoreCategory']);
-    //force Or Permanent Delete Api
+    //force Or Delete from Trash Api
     Route::any('/category/forceDelete/{id}' , [CategoryApiController::class , 'forceDeleteCategory']);
     // SubCategory Controller Api
     //get All SubCategory
@@ -52,7 +52,7 @@ Route::prefix('dashboard')->group(function () {
     Route::delete('/subcategories/{id}' , [SubCategoryApiController::class , 'deleteSubCategory']);
     //restore Categories
     Route::get('/subcategory/restore/{id}' , [SubCategoryApiController::class , 'restoreCategory']);
-    //force Or Permanent Delete Api
+    //force Or Delete from Trash Api
     Route::any('/subcategory/forceDelete/{id}' , [SubCategoryApiController::class , 'forceDeleteCategory']);
     //------------------------------------------------------------------------------------------
     //--------------->Product Api Controller
@@ -70,7 +70,7 @@ Route::prefix('dashboard')->group(function () {
     Route::delete('/products/{id}',[ProductApiController::class,'deleteProduct']);
     //restore Products Api
     Route::get('/product/restore/{id}' , [ProductApiController::class , 'restoreProduct']);
-    //force Or Permanent Delete Api
+    //force Or Delete from Trash Api
     Route::any('/product/forceDelete/{id}' , [ProductApiController::class , 'forceDeleteProduct']);
     // Get All Ratings  Api
     Route::get('/ratings' , [RatingApiController::class , 'getRatings']);

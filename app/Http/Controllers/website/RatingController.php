@@ -35,7 +35,7 @@ class RatingController extends Controller
             }
         }
         else{
-            return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action.");
+            return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action! You must login in first to give a rating for any product.");
         }
         $rating->product_id   = $product->id;
         $rating->created_at   = Carbon::now()->toDateTimeString();
