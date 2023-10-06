@@ -13,7 +13,7 @@ class Wishlist extends Model
 
     public $timestamps = false;
 
-    public function create_user(): BelongsTo
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'customer_id', 'id');
     }

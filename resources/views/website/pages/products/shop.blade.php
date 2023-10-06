@@ -1,4 +1,5 @@
 @extends('website.layouts.master')
+@section('title', 'Shop')
 @section('main-content')
     <div class="bg-light py-3">
         <div class="container">
@@ -41,7 +42,25 @@
 </div>
 
     <div class="row mb-5">
-        @if(session()->has('successful_rating'))
+        @if(session()->has('addWishlist_successfully'))
+        <p>
+            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
+                {{ session()->get('addWishlist_successfully') }}
+            </div>
+        </p>
+        @elseif(session()->has('addWishlist_already_added_unsuccessfully'))
+        <p>
+            <div class="alert alert-danger text-center mx-auto" style="width: 90%; margin-top: 3%;">
+                {{ session()->get('addWishlist_already_added_unsuccessfully') }}
+            </div>
+        </p>
+        @elseif(session()->has('productDeleted_successfully'))
+        <p>
+            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
+                {{ session()->get('productDeleted_successfully') }}
+            </div>
+        </p>
+        @elseif(session()->has('successful_rating'))
         <p>
             <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
                 {{ session()->get('successful_rating') }}
@@ -65,20 +84,8 @@
             <p class="mb-0">{{ $product->category->title ?? ''}}, {{ $product->subCategory->title ?? '' }}</p>
             <p class="text-primary font-weight-bold">{{ $product->price }} EGP</p>
             <span>
-                <form action="{{ route('addRating', $product->id) }}" method="POST">
-                    @csrf
-                    <select name="rating_level" class="form-control @error('rating_level') is-invalid @enderror" onchange="this.form.submit()">
-                        <option value="" selected>----- Rate this product -----</option>
-                        <option value="1">Poor</option>
-                        <option value="2">Average</option>
-                        <option value="3">Good</option>
-                        <option value="4">Very Good</option>
-                        <option value="5">Excellent</option>
-                    </select>
-                    @error('rating_level')
-                        <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
-                    @enderror
-                </form>
+                @include('website.includes.add-to-wishlist')
+                @include('website.includes.add-to-rating')
             </span>
 </div>
 </div>

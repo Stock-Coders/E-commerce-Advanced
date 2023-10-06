@@ -2,7 +2,8 @@
 // Website Controllers
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\website\{MainController,
-    ProductsController, ProfileController, ContactController};
+    ProductsController, WishlistController, ProfileController,
+    ContactController};
 // Dashboard Controllers
 use App\Http\Controllers\dashboard\{DashboardMainController,
     CategoryController, SubCategoryController, ProductController};
@@ -33,8 +34,6 @@ Route::get('/cart', [MainController::class, 'cart'])->name('cart');
 Route::get('/profile' , [MainController::class], 'profile')->name('profile');
 //search Page
 Route::get('/search' , [MainController::class, 'search'])->name('search');
-//wishlist Page
-Route::get('/wishlist',[MainController::class,'wishlist'])->name('wishlist');
 //thankyou Page
 Route::get('/thank-you' , [MainController::class, 'thankYou'])->name('thank-you');
 //checkout Page
@@ -43,6 +42,9 @@ Route::get('/checkout' , [MainController::class, 'checkout'])->name('checkout');
 Route::get('/categories', [MainController::class, 'category'])->name('category');
 //shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
+//wishlist routes
+Route::get('/wishlist',[MainController::class,'wishlist'])->name('wishlist');
+Route::post('/wishlist/submit/{id}',[WishlistController::class , 'addWishlist'])->name('addWishlist');
 //Rating store
 Route::post('/rating/submit/{id}',[App\Http\Controllers\website\RatingController::class , 'addRating'])->name('addRating');
 //profile Pages

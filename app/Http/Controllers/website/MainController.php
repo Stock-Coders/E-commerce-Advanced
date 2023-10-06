@@ -33,7 +33,8 @@ class MainController extends Controller
     }
     //wishlist page
     public function wishlist(){
-        return view('website.pages.wishlist');
+        $customerWishlists = \App\Models\Wishlist::where('customer_id', auth()->user()->id)->get();
+        return view('website.pages.wishlist', compact('customerWishlists'));
     }
     //thankyou Page
     public function thankYou(){
