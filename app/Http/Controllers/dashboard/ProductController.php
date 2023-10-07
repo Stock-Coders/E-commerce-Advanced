@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::latest()->Paginate(5);
+        $products = Product::latest()->paginate(5);
         return view('dashboard.pages.products.index',compact('products'));
     }
 
@@ -172,7 +172,7 @@ class ProductController extends Controller
 
     //function Delete
     public function delete(){
-        $products       = Product::latest()->onlyTrashed()->simplePaginate(5);
+        $products       = Product::latest()->onlyTrashed()->paginate(5);
         $products_count = $products->count();
         return view('dashboard.pages.products.delete', compact('products', 'products_count'));
     }

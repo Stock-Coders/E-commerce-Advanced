@@ -66,7 +66,9 @@
     @endforelse
     </tbody>
 </table>
-<div class="my-4">
-    {{$subCategories->links()}}
-</div>
+<nav class="m-b-30" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center pagination-primary">
+        {!! $subCategories->links('pagination::bootstrap-5') !!}
+    </ul>
+</nav>
 @endsection

@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::orderBy('id' , 'desc')->simplePaginate(5);
+        $categories = Category::orderBy('id' , 'desc')->paginate(5);
         return view('dashboard.pages.categories.index',compact('categories'));
     }
 
@@ -156,7 +156,7 @@ class CategoryController extends Controller
     }
 
     public function delete(){
-        $categories       = Category::orderBy('id', 'desc')->onlyTrashed()->simplePaginate(5);
+        $categories       = Category::orderBy('id', 'desc')->onlyTrashed()->paginate(5);
         $categories_count = $categories->count();
         return view('dashboard.pages.categories.delete', compact('categories', 'categories_count'));
     }

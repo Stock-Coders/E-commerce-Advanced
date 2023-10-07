@@ -62,7 +62,9 @@
     @endforelse
     </tbody>
 </table>
-<div class="my-4">
-    {{$categories->links()}}
-</div>
+<nav class="m-b-30" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center pagination-primary">
+        {!! $categories->links('pagination::bootstrap-5') !!}
+    </ul>
+</nav>
 @endsection

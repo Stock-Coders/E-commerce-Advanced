@@ -11,7 +11,7 @@ class RatingController extends Controller
     public function index()
     {
         //
-        $ratings = Rating::latest()->simplePaginate(5);
+        $ratings = Rating::latest()->paginate(5);
         return view('dashboard.pages.ratings.index',compact('ratings'));
         // if($ratings->rating_level == 1)     {$rating_level_string = "Poor";}
         // elseif($ratings->rating_level == 2) {$rating_level_string = "Average";}

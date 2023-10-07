@@ -158,7 +158,7 @@ class SubCategoryController extends Controller
 
     //function Delete
     public function delete(){
-        $subCategories       = SubCategory::orderBy('id', 'desc')->onlyTrashed()->simplePaginate(5);
+        $subCategories       = SubCategory::orderBy('id', 'desc')->onlyTrashed()->paginate(5);
         $subCategories_count = $subCategories->count();
         return view('dashboard.pages.sub-categories.delete', compact('subCategories', 'subCategories_count'));
     }

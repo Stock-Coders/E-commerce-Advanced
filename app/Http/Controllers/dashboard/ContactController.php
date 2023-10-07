@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::orderBy('id' , 'desc')->simplePaginate(5);
+        $contacts = Contact::orderBy('id' , 'desc')->paginate(5);
         return view('dashboard.pages.contacts.index',compact('contacts'));
     }
 
