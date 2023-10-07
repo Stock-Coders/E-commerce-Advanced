@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\{Factories\HasFactory, Model, SoftDeletes};
+use Illuminate\Database\Eloquent\{
+    Factories\HasFactory, Model, 
+    SoftDeletes, Relations\BelongsTo,
+    Relations\hasMany,
+};
 
 class Product extends Model
 {
@@ -10,32 +14,32 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function create_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function create_user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'create_user_id', 'id');
     }
 
-    public function update_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function update_user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'update_user_id', 'id');
     }
 
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function subCategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function subCategory(): BelongsTo
     {
         return $this->belongsTo(SubCategory::class);
     }
 
-    public function rating(): \Illuminate\Database\Eloquent\Relations\hasMany
+    public function rating(): hasMany
     {
         return $this->hasMany(Rating::class);
     }
 
-    public function wishlist(): \Illuminate\Database\Eloquent\Relations\hasMany
+    public function wishlist(): hasMany
     {
         return $this->hasMany(Wishlist::class);
     }

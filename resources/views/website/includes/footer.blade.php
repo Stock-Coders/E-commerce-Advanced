@@ -61,9 +61,13 @@
     <div class="row pt-5 mt-5 text-center">
         <div class="col-md-12">
             <p>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | StockCoders <i class="icon-heart" aria-hidden="true"></i></a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | <label class="fw-bold">StockCoders</label> 
+                    <label class="text-center mt-2">
+                        <label class="text-primary fw-bold">#</label>LEARN
+                        <label class="text-primary fw-bold">#</label>CODE
+                        <label class="text-primary fw-bold">#</label>GROW
+                    </label>&nbsp;
+                    <i class="icon-heart" aria-hidden="true"></i>
 </p>
 </div>
 </div>

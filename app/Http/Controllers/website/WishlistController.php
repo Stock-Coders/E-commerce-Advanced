@@ -25,8 +25,14 @@ class WishlistController extends Controller
                         ->with('addWishlist_successfully' , '"'.$product->title.'" is successfully added to your wishlist.');
                 }
                 else{
+                    if(auth()->user()->user_type == "admin"){
+                        $unauth = "an (".auth()->user()->user_type;
+                    }
+                    else{
+                        $unauth = "a (".auth()->user()->user_type;
+                    }
                     return redirect()->back()
-                        ->with("addWishlist_unsuccessfully", "Your're unauthorized to do this action!");
+                        ->with("addWishlist_unsuccessfully", 'Your\'re unauthorized to do this action as '.$unauth.")!");
                 }
             }
         }
@@ -37,12 +43,13 @@ class WishlistController extends Controller
     }
 
     public function clearProducts(){
-        $wishlistItemsCount = Wishlist::count();
+        $wishlistItemsCount = Wishlist::where('customer_id', auth()->user()->id)->count();
         if($wishlistItemsCount == 0){
             return redirect()->back()->with('no_items_already_wishlist', "There are no items already in your wishlist!");
         }
         else{
-            DB::table('wishlists')->truncate();
+            // DB::table('wishlists')->where('customer_id', auth()->user()->id)->truncate(); //here it's not available to specify a condition
+            Wishlist::query()->delete(); //here it's available to specify a condition
         }
         return redirect()->route('wishlist')->with('clear_wishlistItems_successfully', "Your wishlist has been cleared successfully.");
     }

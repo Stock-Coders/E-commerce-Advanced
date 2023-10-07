@@ -20,7 +20,7 @@ class RatingFactory extends Factory
         return [
             //
             'rating_level' => fake()->numberBetween(1, 5),
-            'customer_id'  => 3,
+            'user_id'  => 3,
             'product_id'   => fake()->numberBetween(1, 15),
             'created_at'   => Carbon::now()->toDateTimeString(),
         ];

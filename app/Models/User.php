@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\{Factories\HasFactory, Relations\hasMany};
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,10 +24,16 @@ class User extends Authenticatable
     // ];
     protected $guarded = [];
 
-    public function wishlist(): \Illuminate\Database\Eloquent\Relations\hasMany
+    public function wishlist(): hasMany
     {
         return $this->hasMany(Wishlist::class);
     }
+
+    public function rating(): hasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

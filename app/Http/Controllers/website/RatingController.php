@@ -31,7 +31,13 @@ class RatingController extends Controller
                 $rating->customer_id = auth()->user()->id;
             }
             else{
-                return redirect()->back()->with("unsuccessful_rating", 'Your\'re unauthorized to do this action as ('.auth()->user()->user_type.")!");
+                if(auth()->user()->user_type == "admin"){
+                    $unauth = "an (".auth()->user()->user_type;
+                }
+                else{
+                    $unauth = "a (".auth()->user()->user_type;
+                }
+                return redirect()->back()->with("unsuccessful_rating", 'Your\'re unauthorized to do this action as '.$unauth.")!");
             }
         }
         else{
@@ -43,4 +49,5 @@ class RatingController extends Controller
 
         return redirect()->back()->with("successful_rating", "You rated the product ($product->title) as \"$rating_level_string\".");
     }
+
 }

@@ -15,7 +15,8 @@
         @forelse ($customerWishlists as $customerWishlist)
             <div class="my-2 col-lg-6 col-md-6 col-sm-12">
                 <div class="card">
-                    <div class="card-body" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('{{ $customerWishlist->product->image }}'); background-size: 100% 100%; border-radius: 5px;">
+                    {{-- <div class="card-body" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('{{ $customerWishlist->product->image }}'); background-size: 100% 100%; border-radius: 5px;"> --}}
+                    <div class="card-body">
                         {{-- <img width="300" src="{{ $customerWishlist->product->image }}" alt=""> --}}
                         <h5 class="card-title fw-bold text-primary">{{$customerWishlist->product->title }}</h5>
                         <div class="d-flex justify-content-center">
@@ -41,7 +42,7 @@
             </div>
             @empty
             <div class="alert alert-danger text-center my-5 w-75 mx-auto">
-                <span class="h6">There are no items i your wishlist yet!</span>
+                <span class="h6">There are no items in your wishlist yet! <a href="{{ route('shop') }}" class="fw-bold text-dark">Click here to add items in your wishlist from the shop</a>.</span>
             </div>
         @endforelse
         <div class="my-4">
