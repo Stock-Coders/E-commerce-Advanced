@@ -17,18 +17,18 @@
     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
         <div class="site-log">
             {{-- <a href="{{ route('home-ancor') }}" class="js-logo-clone"><img width="100" src="/assets/dashboard/images/logos/e_commerce_advanced_logo.png" alt=""></a> --}}
-            <form action="" class="site-block-top-search">
+            <form action="{{ route('productsSearchResult') }}" class="site-block-top-search">
                         <span class="icon icon-search2 pl-1"></span>
-                            <input type="text" class="form-control border-1" placeholder="Search">
+                            <input type="text" name="search_query" class="form-control border-1" placeholder="want to search for a specific item?">
 </form>
 <label class="text-center mt-2">
     {{-- <label class="text-primary fw-bold">#</label>LEARN
     <label class="text-primary fw-bold">#</label>CODE
     <label class="text-primary fw-bold">#</label>GROW --}}
 
-    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">LEARN</label>&nbsp;
-    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">CODE</label>&nbsp;
-    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">GROW</label>&nbsp;
+    <label class="text-primary fw-bold fs-5 fst-italic">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">LEARN</label>&nbsp;
+    <label class="text-primary fw-bold fs-5 fst-italic">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">CODE</label>&nbsp;
+    <label class="text-primary fw-bold fs-5 fst-italic">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">GROW</label>&nbsp;
 </label>
 </div>
 </div>

@@ -28,12 +28,16 @@ class WishlistController extends Controller
                     if(auth()->user()->user_type == "admin"){
                         $unauth = "an (".auth()->user()->user_type;
                     }
-                    else{
+                    elseif(auth()->user()->user_type == "moderator"){
                         $unauth = "a (".auth()->user()->user_type;
                     }
                     return redirect()->back()
                         ->with("addWishlist_unsuccessfully", 'Your\'re unauthorized to do this action as '.$unauth.")!");
                 }
+            }
+            else{
+                return redirect()->back()
+                    ->with("addWishlist_unsuccessfully", "Your\"re unauthorized to do this action! You must login in first to add items in your wishlist!");
             }
         }
         catch (\Exception $exception){ // the wrong condition (handle exception which is here in this case -> "duplication error")

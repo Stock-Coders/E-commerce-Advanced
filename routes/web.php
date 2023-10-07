@@ -42,6 +42,7 @@ Route::get('/checkout' , [MainController::class, 'checkout'])->name('checkout');
 Route::get('/categories', [MainController::class, 'category'])->name('category');
 //shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
+Route::get('/search', [ProductsController::class, 'productsSearchResult'])->name('productsSearchResult');
 //wishlist routes
 Route::get('/wishlist',[MainController::class,'wishlist'])->middleware(['auth', 'wishlist'])->name('wishlist'); //wishlist middleware works for "customer" only!
 Route::post('/wishlist/submit/{id}',[WishlistController::class , 'addWishlist'])->name('addWishlist');
