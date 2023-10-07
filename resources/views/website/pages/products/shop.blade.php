@@ -42,37 +42,7 @@
 </div>
 
     <div class="row mb-5">
-        @if(session()->has('addWishlist_successfully'))
-        <p>
-            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-                {{ session()->get('addWishlist_successfully') }}
-            </div>
-        </p>
-        @elseif(session()->has('addWishlist_already_added_unsuccessfully'))
-        <p>
-            <div class="alert alert-danger text-center mx-auto" style="width: 90%; margin-top: 3%;">
-                {{ session()->get('addWishlist_already_added_unsuccessfully') }}
-            </div>
-        </p>
-        @elseif(session()->has('productDeleted_successfully'))
-        <p>
-            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-                {{ session()->get('productDeleted_successfully') }}
-            </div>
-        </p>
-        @elseif(session()->has('successful_rating'))
-        <p>
-            <div class="alert alert-success text-center mx-auto" style="width: 90%; margin-top: 3%;">
-                {{ session()->get('successful_rating') }}
-            </div>
-        </p>
-        @elseif(session()->has('unsuccessful_rating'))
-        <p>
-            <div class="alert alert-danger text-center mx-auto" style="width: 90%; margin-top: 3%;">
-                {{ session()->get('unsuccessful_rating') }}
-            </div>
-        </p>
-        @endif
+        @include('website.includes.products-wishlist-rating-messages.products-wishlist-rating-messages')
         @forelse($products as $product)
         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
             <div class="block-4 text-center border">

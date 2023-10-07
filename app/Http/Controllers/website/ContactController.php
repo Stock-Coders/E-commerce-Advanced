@@ -38,7 +38,7 @@ class ContactController extends Controller
                 $contact->customer_id = auth()->user()->id;
             }
             else{
-                return redirect()->route('contact')->with("unsuccessful_contact", "Your're unauthorized to do this action.");
+                return redirect()->route('contact')->with("unsuccessful_contact", "Your're unauthorized to do this action!");
             }
         }
         else{

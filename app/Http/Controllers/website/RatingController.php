@@ -31,11 +31,11 @@ class RatingController extends Controller
                 $rating->customer_id = auth()->user()->id;
             }
             else{
-                return redirect()->back()->with("unsuccessful_rating", 'Your\'re unauthorized to do this action as ('.auth()->user()->user_type.").");
+                return redirect()->back()->with("unsuccessful_rating", 'Your\'re unauthorized to do this action as ('.auth()->user()->user_type.")!");
             }
         }
         else{
-            return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action! You must login in first to give a rating for any product.");
+            return redirect()->back()->with("unsuccessful_rating", "Your're unauthorized to do this action! You must login in first to give a rating for any product!");
         }
         $rating->product_id   = $product->id;
         $rating->created_at   = Carbon::now()->toDateTimeString();

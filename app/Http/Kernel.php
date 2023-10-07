@@ -64,6 +64,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //Guest & Customer Dashboard restriction
-        "dashboard" => \App\Http\Middleware\Dashboard::class,
+        "dashboard" => \App\Http\Middleware\custom_middlewares\Dashboard::class,
+        //Guest & any user_type Wishlist restriction (except for the "customer")
+        "wishlist" => \App\Http\Middleware\custom_middlewares\Wishlist::class,
     ];
 }

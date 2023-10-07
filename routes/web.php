@@ -43,8 +43,10 @@ Route::get('/categories', [MainController::class, 'category'])->name('category')
 //shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
 //wishlist routes
-Route::get('/wishlist',[MainController::class,'wishlist'])->name('wishlist');
+Route::get('/wishlist',[MainController::class,'wishlist'])->middleware(['auth', 'wishlist'])->name('wishlist'); //wishlist middleware works for "customer" only!
 Route::post('/wishlist/submit/{id}',[WishlistController::class , 'addWishlist'])->name('addWishlist');
+Route::delete('/wishlist', [WishlistController::class,'clearProducts'])->name('clearWishlist');
+Route::delete('/wishlist/{id}', [WishlistController::class,'destroy'])->name('deleteWishlist');
 //Rating store
 Route::post('/rating/submit/{id}',[App\Http\Controllers\website\RatingController::class , 'addRating'])->name('addRating');
 //profile Pages

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\custom_middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class Dashboard
+class Wishlist
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Dashboard
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user() || auth()->user()->user_type == "customer"){
+        if(auth()->user()->user_type != "customer"){
             return redirect('/');
         }
 
