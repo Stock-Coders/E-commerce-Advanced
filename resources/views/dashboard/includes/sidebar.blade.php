@@ -5,8 +5,8 @@
     <nav class="vertnav navbar navbar-light">
       <!-- nav bar -->
       <div class="w-100 mb-4 d-flex">
-        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
-          <img class="img-rounded" width="120" src="/assets/dashboard/images/logos/e_commerce_advanced_logo.png" alt="">
+        <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{ route('dashboard') }}">
+          <img class="img-rounded" width="60" src="/assets/dashboard/images/logos/e_commerce_advanced_logo.png" alt="">
         </a>
       </div>
       <ul class="navbar-nav flex-fill w-100 mb-2">

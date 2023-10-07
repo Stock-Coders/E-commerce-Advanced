@@ -28,7 +28,7 @@ class RatingController extends Controller
         else                                  {return abort('404');}
         if(auth()->user()){
             if(auth()->user()->user_type == "customer"){
-                $rating->customer_id = auth()->user()->id;
+                $rating->user_id = auth()->user()->id;
             }
             else{
                 if(auth()->user()->user_type == "admin"){

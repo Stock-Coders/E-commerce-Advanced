@@ -47,14 +47,17 @@
         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
             <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                    <a href="javascript:void(0)"><img src="{{ $product->image }}" alt="Image placeholder" class="img-fluid"></a>
+                    <img src="{{ $product->image }}" alt="Image placeholder" class="img-fluid">
+                    <a href="{{ route('shop-single', $product->id) }}" class="btn btn-dark" style="position: absolute; top: 1%; left: 5%;">Show</a>
 </figure>
     <div class="block-4-text p-4">
-        <h3><a href="javascript:void(0)">{{ $product->title }}</a></h3>
+        <h3><a href="{{ route('shop-single', $product->id) }}">{{ $product->title }}</a></h3>
             <p class="mb-0">{{ $product->category->title ?? ''}}, {{ $product->subCategory->title ?? '' }}</p>
             <p class="text-primary font-weight-bold">{{ $product->price }} EGP</p>
             <span>
-                @include('website.includes.add-to-wishlist')
+                <div class="d-flex justify-content-center p-1">
+                    @include('website.includes.add-to-wishlist')
+                </div>
                 @include('website.includes.add-to-rating')
             </span>
 </div>

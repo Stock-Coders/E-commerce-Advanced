@@ -20,6 +20,17 @@ class ProductController extends Controller
         return view('dashboard.pages.products.index',compact('products'));
     }
 
+    public function dashboardProductsSearchResult(Request $request)
+    {
+        $search_text_input     = $request->dashboard_search_query;
+        $products_result       = Product::where('title','LIKE',"%{$search_text_input}%")->paginate(10);
+        $products_result_count = $products_result->count();
+
+        return view('dashboard.pages.products.search-products',
+        compact('search_text_input', 'products_result', 'products_result_count'))
+        ->with('i' , ($request->input('page', 1) - 1) * 5);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -14,6 +14,11 @@ class ProductsController extends Controller
         return view('website.pages.products.shop', compact('products'));
     }
 
+    public function shopSingle($id){
+        $product = Product::find($id);
+        return view('website.pages.products.shop-single', compact('product'));
+    }
+
     public function productsSearchResult(Request $request)
     {
         $search_text_input     = $request->search_query;

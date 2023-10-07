@@ -17,8 +17,10 @@
                 <div class="card">
                     {{-- <div class="card-body" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('{{ $customerWishlist->product->image }}'); background-size: 100% 100%; border-radius: 5px;"> --}}
                     <div class="card-body">
-                        {{-- <img width="300" src="{{ $customerWishlist->product->image }}" alt=""> --}}
-                        <h5 class="card-title fw-bold text-primary">{{$customerWishlist->product->title }}</h5>
+                        <img width="300" class="rounded" src="{{ $customerWishlist->product->image }}" alt="">
+                        <h5 class="card-title fw-bold text-primary">
+                            <a class="text-decoration-none" href="{{ route('shop-single', $customerWishlist->product->id) }}">{{$customerWishlist->product->title }}</a>
+                        </h5>
                         <div class="d-flex justify-content-center">
                             <p class="card-text bg-dark text-white rounded w-75 text-center p-2">
                                 {{ Str::words($customerWishlist->product->description, '10', '...') ?? 'N/A' }} {{-- <hr> --}}
@@ -27,14 +29,28 @@
                         <hr>
                         <h4 class="fw-bold">{{ $customerWishlist->product->price }} EGP</h4>
                         <div class="d-flex justify-content-center align-items-center text-center">
-                            <a href="{{ /* route('shopSingle.show', $customerWishlist->product->id) */ 'javascript:void(0);' }}" class="btn btn-warning btn-md p-1 m-1 text-dark border-2 border-dark"><i class="far fa-clone p-1"></i> Show Product</a>
+                            <a href="{{ route('shop-single', $customerWishlist->product->id) }}" class="btn btn-warning btn-md p-1 m-1 text-dark border-2 border-dark"><i class="far fa-clone p-1"></i> Show Product</a>
                             <form action="{{ route('deleteWishlist',$customerWishlist->id)}}" method="post">
                                 @csrf
                                 @method("DELETE")
-                                @php 
+                                @php
                                 $wishlistItemName = $customerWishlist->product->title;
                                 @endphp
                                 <button class="btn btn-danger btn-md p-1 border-2 border-dark text-white" onclick="return confirm('Are you sure that you want to delete the wishlist for product ({{ $wishlistItemName }})?');" type="submit" title="{{'Delete '."- ($wishlistItemName)"}}"><i class="fa-solid fa-trash-alt p-1"></i> Delete </button>
+                            </form>
+                            <form action="{{ route('addRating', $customerWishlist->product->id) }}" method="POST">
+                                @csrf
+                                <select name="rating_level" class="form-control m-1 @error('rating_level') is-invalid @enderror" onchange="this.form.submit()">
+                                    <option value="" selected>----- Rate this product -----</option>
+                                    <option value="1">Poor</option>
+                                    <option value="2">Average</option>
+                                    <option value="3">Good</option>
+                                    <option value="4">Very Good</option>
+                                    <option value="5">Excellent</option>
+                                </select>
+                                @error('rating_level')
+                                    <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                @enderror
                             </form>
                         </div>
                     </div>

@@ -42,7 +42,8 @@ Route::get('/checkout' , [MainController::class, 'checkout'])->name('checkout');
 Route::get('/categories', [MainController::class, 'category'])->name('category');
 //shop Page
 Route::get('/shop',[ProductsController::class , 'shop'])->name('shop');
-Route::get('/search', [ProductsController::class, 'productsSearchResult'])->name('productsSearchResult');
+Route::get('/shop/{id}',[ProductsController::class , 'shopSingle'])->name('shop-single');
+Route::get('/shop/search', [ProductsController::class, 'productsSearchResult'])->name('productsSearchResult');
 //wishlist routes
 Route::get('/wishlist',[MainController::class,'wishlist'])->middleware(['auth', 'wishlist'])->name('wishlist'); //wishlist middleware works for "customer" only!
 Route::post('/wishlist/submit/{id}',[WishlistController::class , 'addWishlist'])->name('addWishlist');
@@ -74,6 +75,7 @@ Route::group([
         Route::delete('/subcategory/forceDelete/{id}',[SubCategoryController::class , 'forceDelete'])->name('subcategories.forceDelete');  //Route Function forceDelete
 
         Route::resource('/products', ProductController::class);
+        Route::get('/product/search',[ProductController::class , 'dashboardProductsSearchResult'])->name('dashboardProductsSearchResult.index');
         Route::get('/product/delete',[ProductController::class , 'delete'])->name('products.delete');  //Route Function softDelete Category
         Route::get('/product/restore/{id}',[ProductController::class , 'restore'])->name('products.restore');  //Route Function restore
         Route::delete('/product/forceDelete/{id}',[ProductController::class , 'forceDelete'])->name('products.forceDelete');  //Route Function forceDelete

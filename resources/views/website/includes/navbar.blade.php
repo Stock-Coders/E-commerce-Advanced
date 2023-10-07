@@ -19,7 +19,7 @@
             {{-- <a href="{{ route('home-ancor') }}" class="js-logo-clone"><img width="100" src="/assets/dashboard/images/logos/e_commerce_advanced_logo.png" alt=""></a> --}}
             <form action="{{ route('productsSearchResult') }}" class="site-block-top-search">
                         <span class="icon icon-search2 pl-1"></span>
-                            <input type="text" name="search_query" class="form-control border-1" placeholder="want to search for a specific item?">
+                            <input type="text" name="search_query" class="form-control border-1" placeholder="Want to search for a specific item?">
 </form>
 <label class="text-center mt-2">
     {{-- <label class="text-primary fw-bold">#</label>LEARN
@@ -89,34 +89,30 @@
     <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
             <ul class="site-menu js-clone-nav d-none d-md-block">
-                <li class="has-children @if(Route::is('home-ancor') || Route::is('home')) active @endif">
+                <li class="@if(Route::is('home-ancor') || Route::is('home')) active @endif">
                     <a href="{{ route('home-ancor') }}">Home</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                                <li><a href="#">Menu Two</a></li>
-                                    <li><a href="#">Menu Three</a></li>
-                                        <li class="has-children">
-                                            <a href="#">Sub Menu</a>
-                                                <ul class="dropdown">
-                                                        <li><a href="#">Menu One</a></li>
-                                                            <li><a href="#">Menu Two</a></li>
-                                                                <li><a href="#">Menu Three</a></li>
-</ul>
 </li>
-</ul>
-</li>
-    <li class="has-children @if(Route::is('about')) active @endif">
+    <li class="@if(Route::is('about')) active @endif">
         <a href="{{route('about')}}">About</a>
+</li>
+    <li class="has-children @if(Route::is('shop')) active @endif">
+        <a href="{{ route("shop") }}">Shop</a>
+        <ul class="dropdown">
+            <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                    <li><a href="#">Menu Three</a></li>
+</ul>
+</li>
+        <li class="has-children @if(Route::is('category')) active @endif">
+            <a href="{{ route('category') }}">Category</a>
             <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                     <li><a href="#">Menu Two</a></li>
                         <li><a href="#">Menu Three</a></li>
 </ul>
 </li>
-    <li class="has-children @if(Route::is('shop')) active @endif"><a href="{{ route("shop") }}">Shop</a></li>
-        <li class="has-children @if(Route::is('category')) active @endif"><a href="{{ route('category') }}">Category</a></li>
             {{-- <li><a href="#">New Arrivals</a></li> --}}
-                <li class="has-children @if(Route::is('contact')) active @endif"><a href="{{route('contact')}}">Contact</a></li>
+                <li class="@if(Route::is('contact')) active @endif"><a href="{{route('contact')}}">Contact</a></li>
 </ul>
 </div>
 </nav>
