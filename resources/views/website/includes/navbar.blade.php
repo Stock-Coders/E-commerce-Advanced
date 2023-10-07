@@ -22,9 +22,13 @@
                             <input type="text" class="form-control border-1" placeholder="Search">
 </form>
 <label class="text-center mt-2">
-    <label class="text-primary fw-bold">#</label>LEARN
+    {{-- <label class="text-primary fw-bold">#</label>LEARN
     <label class="text-primary fw-bold">#</label>CODE
-    <label class="text-primary fw-bold">#</label>GROW
+    <label class="text-primary fw-bold">#</label>GROW --}}
+
+    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">LEARN</label>&nbsp;
+    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">CODE</label>&nbsp;
+    <label class="text-primary fw-bold fs-5">#</label><label class="fs-4" style="font-family: 'Brush Script MT', cursive;">GROW</label>&nbsp;
 </label>
 </div>
 </div>
@@ -50,9 +54,9 @@
 </a>
 </li>@endif @endauth
 
-<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" area-haspopup="true" area-expanded="false">
+<a type="button" class="dropdown-toggle p-1" data-toggle="dropdown" area-haspopup="true" area-expanded="false">
     <span class="icon icon-person"></span>
-</button>
+</a>
 <div class="dropdown-menu dropdown-menu-right">
     @if(auth()->user())
         <button class="dropdown-item" type="button" onclick="window.location.href = '{{ route('showProfile', auth()->user()->id) }}';">
