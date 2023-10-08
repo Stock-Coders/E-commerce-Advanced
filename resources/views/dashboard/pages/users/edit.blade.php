@@ -1,5 +1,9 @@
 @extends('dashboard.layouts.master')
-@section('title' , "Edit User ($user->name)")
+@if($user->id == auth()->user()->id)
+    @section('title', "Edit Your Data")
+@else
+    @section('title', "Edit User ($user->name)")
+@endif
 @section('main-content')
 <div class="container-fluid">
     <div class="row justify-content-center">

@@ -45,7 +45,6 @@ class UserController extends Controller
             'email'            => 'required|email|string|max:255|unique:users',
             'phone'            => 'nullable|numeric|max:1020',
             'user_type'        => 'required|in:customer',
-            'password'         => 'required|min:8|confirmed',
             // 'create_user_id'   => 'nullable|exists:users,id',
             // 'update_user_id'   => 'nullable|exists:users,id',
         ]);
@@ -55,12 +54,11 @@ class UserController extends Controller
         $user->email       = $request->email;
         $user->phone       = $request->phone;
         $user->user_type   = $request->user_type;
-        $user->password    = $request->password;
         // $user->create_user_id     = auth()->user()->id;
         // $user->updated_at         = null;
         $user->save();
 
-        return redirect()->route('users.index')->with('successfully' , "The product ($user->title)has been Created Successfully.");
+        return redirect()->route('users.index')->with('successfully' , "The user ($user->name)has been created successfully.");
 
     }
 
@@ -117,7 +115,6 @@ class UserController extends Controller
             'email'            => 'required|email|string|max:255|unique:users',
             'phone'            => 'nullable|numeric|max:1020',
             'user_type'        => 'required|in:customer',
-            'password'         => 'required|min:8|confirmed',
             // 'create_user_id'   => 'nullable|exists:users,id',
             // 'update_user_id'   => 'nullable|exists:users,id',
         ]);
@@ -133,10 +130,9 @@ class UserController extends Controller
         $user->email     = $request->email;
         $user->phone     = $request->phone;
         $user->user_type = $request->user_type;
-        $user->password  = $request->password;
         // $user->update_user_id     = auth()->user()->id;
         $user->save();
-        return redirect()->route('users.index')->with('successfully', "The product ($user_old->name) has Been updated successfully.");
+        return redirect()->route('users.index')->with('successfully', "The user ($user_old->name) has been updated successfully.");
     }
 
     /**
@@ -149,6 +145,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('users.index')->with('successfully' , "The product ($user->name) has been moved to trash successfully.");
+        return redirect()->route('users.index')->with('successfully' , "The user ($user->name) has been moved to trash successfully.");
     }
 }

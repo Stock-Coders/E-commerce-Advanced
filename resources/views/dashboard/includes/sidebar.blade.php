@@ -34,7 +34,7 @@
       <ul class="navbar-nav flex-fill w-100 mb-2">
         <li class="nav-item dropdown">
           <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-            <i class="fe fe-box fe-16"></i>
+            <i class="fe fe-users fe-16"></i>
             <span class="ml-3 item-text">Users</span>
           </a>
           <ul class="collapse list-unstyled pl-4 w-100" id="users">

@@ -43,19 +43,23 @@
     @if($user->user_type == 'admin' && auth()->user()->user_type == 'admin' && auth()->user()->email == 'admin@gmail.com')
         <input value="{{ ucfirst($user->user_type) }}" class="form-control" disabled>
     @else
-        <select class="form-control @error('user_type') is-invalid @enderror" name="user_type" id="user_type">
-            <option value="">-------- Select a user type --------</option>
-            <option value="customer" {{ $user->user_type == 'customer' ? 'selected' : '' }}>Customer</option>
-            <option value="moderator" {{ $user->user_type == 'moderator' ? 'selected' : '' }}>Moderator</option>
-            <option value="admin" {{ $user->user_type == 'admin' ? 'selected' : '' }}>Admin</option>
-        </select>
+        @if(auth()->user()->user_type == 'admin')
+            <select class="form-control @error('user_type') is-invalid @enderror" name="user_type" id="user_type">
+                <option value="">-------- Select a user type --------</option>
+                <option value="customer" {{ $user->user_type == 'customer' ? 'selected' : '' }}>Customer</option>
+                <option value="moderator" {{ $user->user_type == 'moderator' ? 'selected' : '' }}>Moderator</option>
+                <option value="admin" {{ $user->user_type == 'admin' ? 'selected' : '' }}>Admin</option>
+            </select>
+        @else
+            <input value="{{ ucfirst($user->user_type) }}" class="form-control" disabled>
+        @endif
         @error('user_type')
             <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
         @enderror
     @endif
 </div>
 
-<div class="form-group mb-3">
+{{-- <div class="form-group mb-3">
     <label for="password">password <span class="text-danger">*</span></label>
     <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
     @error('password')
@@ -66,12 +70,4 @@
 <div class="form-group mb-3">
     <label for="password">Confirm password <span class="text-danger">*</span></label>
     <input type="password" name="password-confirm" id="password-confirm" class="form-control">
-</div>
-
-{{-- <div class="form-group mb-3">
-    <label for="email">Email <span class="text-danger">*</span></label>
-    <input type="email" name="email" id="email" value="{{ Request::old('email') ? Request::old('email') : $user->email }}" class="form-control @error('email') is-invalid @enderror">
-    @error('email')
-        <span class="invalid-feedback" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
-    @enderror
 </div> --}}
