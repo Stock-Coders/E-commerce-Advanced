@@ -2,6 +2,11 @@
 @section('title' , 'Ratings')
 @section('main-content')
 <!-- Bordered table -->
+<div class="row">
+    <p class="fs-5">
+        Results (<span class="fw-bold">{{ \App\Models\Rating::count() }}</span>)
+    </p>
+</div>
 @include('dashboard.pages.ratings.index-messages.messages')
 <table class="table table-hover table-bordered @if($ratings->count() == 0) d-none @endif">
     <thead class="thead-dark text-center">

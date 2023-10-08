@@ -33,23 +33,39 @@
       </p>
       <ul class="navbar-nav flex-fill w-100 mb-2">
         <li class="nav-item dropdown">
-          <a href="#categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+          <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
             <i class="fe fe-box fe-16"></i>
-            <span class="ml-3 item-text">Categories</span>
+            <span class="ml-3 item-text">Users</span>
           </a>
-          <ul class="collapse list-unstyled pl-4 w-100" id="categories">
+          <ul class="collapse list-unstyled pl-4 w-100" id="users">
             <li class="nav-item">
-              <a class="nav-link pl-3" href="{{ route('categories.index') }}"><span class="ml-1 item-text">All Categories</span>
+              <a class="nav-link pl-3" href="{{ route('users.index') }}"><span class="ml-1 item-text">All Users</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pl-3" href="{{ route('categories.create') }}"><span class="ml-1 item-text">Add Category</span></a>
+              <a class="nav-link pl-3" href="{{ route('users.create') }}"><span class="ml-1 item-text">Add User</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('categories.delete') }}"><span class="ml-1 item-text">All Deleted Categories</span></a>
-              </li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+            <a href="#categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+              <i class="fe fe-box fe-16"></i>
+              <span class="ml-3 item-text">Categories</span>
+            </a>
+            <ul class="collapse list-unstyled pl-4 w-100" id="categories">
+              <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('categories.index') }}"><span class="ml-1 item-text">All Categories</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('categories.create') }}"><span class="ml-1 item-text">Add Category</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link pl-3" href="{{ route('categories.delete') }}"><span class="ml-1 item-text">All Deleted Categories</span></a>
+                </li>
+            </ul>
+          </li>
 
         {{-- <li class="nav-item w-100">
           <a class="nav-link" href="widgets.html">

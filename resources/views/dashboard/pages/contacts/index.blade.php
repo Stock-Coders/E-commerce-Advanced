@@ -4,10 +4,9 @@
 <!-- Bordered table -->
 @include('dashboard.pages.contacts.index-messages.messages')
 <div class="row">
-    <div class="col-md-12 grid-margin">
-      {{-- <div class="d-flex justify-content-end flex-wrap">
-      </div> --}}
-    </div>
+    <p class="fs-5">
+        Results (<span class="fw-bold">{{ \App\Models\Contact::count() }}</span>)
+    </p>
 </div>
 <table class="table table-hover table-bordered @if($contacts->count() == 0) d-none @endif">
     <thead class="thead-dark text-center">

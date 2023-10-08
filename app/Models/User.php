@@ -24,6 +24,16 @@ class User extends Authenticatable
     // ];
     protected $guarded = [];
 
+    // public function create_user(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'create_user_id', 'id');
+    // }
+
+    // public function update_user(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, 'update_user_id', 'id');
+    // }
+
     public function wishlist(): hasMany
     {
         return $this->hasMany(Wishlist::class);

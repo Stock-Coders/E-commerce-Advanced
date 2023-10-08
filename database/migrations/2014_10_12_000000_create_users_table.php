@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->enum('user_type', ['admin', 'moderator', 'customer'])->default('customer');
+            $table->foreignId('create_user_id')->nullable()->constrained('users');
+            $table->foreignId('update_user_id')->nullable()->constrained('users');
             $table->rememberToken();
             $table->timestamps();
         });

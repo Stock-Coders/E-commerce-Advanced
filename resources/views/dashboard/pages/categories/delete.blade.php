@@ -2,6 +2,11 @@
 @section('title' , 'Deleted Categories')
 @section('main-content')
 <!-- Bordered table -->
+<div class="row">
+    <p class="fs-5">
+        Results (<span class="fw-bold">{{ \App\Models\Category::onlyTrashed()->count() }}</span>)
+    </p>
+</div>
 <table class="table table-hover table-bordered @if($categories_count == 0) d-none @endif">
     <thead class="thead-dark text-center">
     <tr>

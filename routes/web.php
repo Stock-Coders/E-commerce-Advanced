@@ -3,10 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\website\{MainController,
     ProductsController, WishlistController, ProfileController,
-    ContactController};
+    ContactController,
+};
 // Dashboard Controllers
 use App\Http\Controllers\dashboard\{DashboardMainController,
-    CategoryController, SubCategoryController, ProductController};
+    CategoryController, SubCategoryController, ProductController,
+    UserController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +90,8 @@ Route::group([
         Route::get('/ratings',[App\Http\Controllers\dashboard\RatingController::class , 'index'])->name('ratings.index');
         Route::get('/ratings/{id}',[App\Http\Controllers\dashboard\RatingController::class , 'show'])->name('ratings.show');
         Route::delete('/rating/delete/{id}',[App\Http\Controllers\dashboard\RatingController::class , 'destroy'])->name('ratings.destroy');
+
+        Route::resource('/users', UserController::class);
     });
 });
 //*****-------------------- END dashboard/admin route. --------------------*****//

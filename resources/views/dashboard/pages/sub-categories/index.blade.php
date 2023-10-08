@@ -14,6 +14,11 @@
         </div>
       </div>
     </div>
+    <div class="row">
+        <p class="fs-5">
+            Results (<span class="fw-bold">{{ \App\Models\SubCategory::count() }}</span>)
+        </p>
+    </div>
 </div>
 <table class="table table-hover table-bordered @if($subCategories->count() == 0) d-none @endif">
     <thead class="thead-dark text-center">

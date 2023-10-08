@@ -14,6 +14,9 @@
         </div>
       </div>
     </div>
+    <p class="fs-5">
+        Results (<span class="fw-bold">{{ \App\Models\Product::count() }}</span>)
+    </p>
 </div>
 <table class="table table-hover table-bordered @if($products->count() == 0) d-none @endif">
     <thead class="thead-dark text-center">

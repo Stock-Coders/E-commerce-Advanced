@@ -4,8 +4,8 @@
 <div class="container text-center my-3 mb-2 single-category">
     <div class="bg-dark text-light w-75 mx-auto
         shadow rounded p-5">
-        <h2> {{$category->title ?? 'NULL'}}</h2>
-        <p>{{$category->description ?? 'NULL'}}</p>
+        <h2> {{$category->title ?? 'N/A'}}</h2>
+        <p>{{$category->description ?? 'N/A'}}</p>
         <hr>
         <div class="">
             <form action="{{ route('categories.destroy', $category->id) }}" method="post">
